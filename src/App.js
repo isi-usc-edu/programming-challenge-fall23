@@ -12,6 +12,8 @@ import Stack from '@mui/material/Stack'
 
 import Content from './components/Content'
 import Loading from './components/Loading'
+import Login from './pages/login'
+import ShoppingListApp from './pages/shopping-list'
 
 
 let theme = createTheme({
@@ -86,11 +88,13 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <CssBaseline />
+      {/* <CssBaseline />
       <Stack spacing={2}>
         {renderLoading()}
         {renderContent()}
-      </Stack>
+      </Stack> */}
+      {/* <Login /> */}
+      <ShoppingListApp />
     </ThemeProvider>
   )
 }
