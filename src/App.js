@@ -56,6 +56,21 @@ let theme = createTheme({
         },
       },
     },
+    MuiTableHead: {
+      styleOverrides: {
+        root: {
+          backgroundColor: '#f5f5f5',
+          fontWeight: '600',
+        },
+      },
+    },
+    MuiTableCell: {
+      styleOverrides: {
+        root: {
+          fontSize: '1.2rem',
+        }
+      }
+    },
   },
 })
 theme = responsiveFontSizes(theme)
