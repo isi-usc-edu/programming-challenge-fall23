@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+# Let's Shop
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Introduction
 
-## Available Scripts
+The Let's Shop app is designed to assist senior citizens in managing their grocery shopping lists efficiently. This user-friendly application leverages the WebSpeech API to allow users to add items to their cart by speaking the name of the product. Additionally, users have the option to manually enter the name of the product. The app aims to simplify the shopping experience for seniors and make it more accessible.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+### 1. Speech-to-Text for Spoken Items
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- The app provides a speech recognition feature, allowing users to verbally specify the items they want to add to their shopping cart.
+- The spoken items are then checked against an items database, and a corresponding product is mapped if a match is found.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 2. Autocomplete for Manual Entry
 
-### `npm test`
+- Users can manually enter the name of the product using the autocomplete feature, ensuring accuracy and convenience in item selection.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 3. Edit Spoken Content
 
-### `npm run build`
+- To accommodate variations in pronunciation and speech recognition accuracy, users have the option to edit the transcribed content.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 4. Add to Cart Button
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- The app includes an "Add to Cart" button (represented by a plus sign icon) to add selected items to the cart, allowing users to build their shopping list easily.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 5. Show Cart
 
-### `npm run eject`
+- Users can view the list of items they've added to their cart by clicking the "Show Cart" button (represented by a cart icon).
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 6. Print List
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- The app offers a "Print List" feature, allowing users to generate a physical shopping list for reference while shopping in-store.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 7. Share List via Email
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Users can share their shopping list with the grocery store or family members via email, making it a collaborative and convenient shopping experience.
 
-## Learn More
+### Login Feature
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- The app includes a login feature that allows users to access their shopping lists securely.
+- Users can log in using their username and password.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Authentication
 
-### Code Splitting
+- The login feature makes use of the Authentication API at [https://fakestoreapi.com/auth/login](https://fakestoreapi.com/auth/login).
+- The predefined username and password for logging in are as follows:
+  - Username: "mor_2314"
+  - Password: "83r5^_"
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Routes
 
-### Analyzing the Bundle Size
+- `/`: This route leads to the login page where users can log in using their credentials.
+- `/cart`: This route provides access to the text-to-speech and cart functionality, allowing users to interact with their shopping list.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## APIs Used in the Project
 
-### Making a Progressive Web App
+- **Get a List of All Available Products**: The app retrieves a list of all available products from [https://dummyjson.com/products](https://dummyjson.com/products). This API is used to populate the product database and provide a wide selection of items for users to add to their shopping lists.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- **Authentication API**: The authentication feature of the app utilizes the Authentication API at [https://fakestoreapi.com/auth/login](https://fakestoreapi.com/auth/login) to securely authenticate users and grant access to their shopping lists.
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The Let's Shop app is designed to make grocery shopping more accessible and user-friendly for seniors. Enjoy a seamless and efficient shopping experience with the convenience of speech recognition, manual entry features, and secure login functionality.

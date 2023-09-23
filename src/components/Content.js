@@ -10,7 +10,7 @@ const Content = ({ socketConnection }) => {
 
   return (
     <React.Fragment>
-      {renderHello()}
+      {/* {renderHello()} */}
     </React.Fragment>
   )
 }
