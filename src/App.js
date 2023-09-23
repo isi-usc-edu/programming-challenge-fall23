@@ -1,4 +1,10 @@
 import React, { useEffect, useState } from 'react'
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+
+import Login from './pages/login';
 
 import CssBaseline from '@mui/material/CssBaseline'
 
@@ -12,6 +18,7 @@ import Stack from '@mui/material/Stack'
 
 import Content from './components/Content'
 import Loading from './components/Loading'
+import ShoppingList from './pages/shoppingList';
 
 
 let theme = createTheme({
@@ -33,7 +40,8 @@ let theme = createTheme({
           background: '#fefefe',
           overflow: 'hidden',
           padding: '5px',
-          width: '450px',
+          width: '100vw',
+          height: '100vh',
           color: '#333',
         },
       },
@@ -52,6 +60,16 @@ let theme = createTheme({
 })
 theme = responsiveFontSizes(theme)
 
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <ShoppingList />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+]);
 
 const App = () => {
 
@@ -74,23 +92,11 @@ const App = () => {
     }
   }, [])
 
-  const renderLoading = () => {
-    if ( !loading ) { return }
-    return <Loading text='loading..' />
-  }
-
-  const renderContent = () => {
-    if ( loading ) { return }
-    return <Content />
-  }
 
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Stack spacing={2}>
-        {renderLoading()}
-        {renderContent()}
-      </Stack>
+      <RouterProvider router={router} />
     </ThemeProvider>
   )
 }
