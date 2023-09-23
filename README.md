@@ -64,6 +64,7 @@ Follow these steps to run the Let's Shop app on your local machine:
 
 1. **Install Dependencies:**
 
+```bash
    npm i 
    npm i --force (incase of any dependency issues)
    npm start
