@@ -5,7 +5,6 @@ import { createTheme } from '@mui/material/styles';
 const theme = createTheme();
 
 function GroceryCard(props) {
-  console.log('tododood', props);
 
   return (
     <Card sx={{ maxWidth: 400, margin: '16px', backgroundColor: '#AAB4BF' }}>

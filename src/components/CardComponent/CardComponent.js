@@ -12,7 +12,6 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 const theme = createTheme();
 
 function CardComponent(props) {
-  console.log('todo products', props);
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState('');
   const [error, setError] = useState('');
@@ -51,8 +50,6 @@ function CardComponent(props) {
     setStore((prevStore) => [...prevStore, newItem]);
   };
 
-  console.log('store', store);
-  console.log(props.todo, 'props.todo.todo.image');
 
   return (
     <div>
