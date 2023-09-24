@@ -2,9 +2,10 @@ import React, {useEffect, useState} from "react";
 import {productList as productListData} from "./testData";
 import ProductList from "./components/ProductList";
 import AddProduct from "./components/AddProduct";
-import {fetchAllProduct} from "./context/Connection";
 import {Button} from "@mui/material";
 import SearchBar from "./components/SearchBar";
+import {checkBrowserCompatibility, renderSpeech} from './WebSpeechAPI/WebSpeedAPI'
+import {render} from "@testing-library/react";
 
  export default function MyApp() {
 
@@ -13,7 +14,7 @@ import SearchBar from "./components/SearchBar";
     const [addNewTaskForm, setAddNewTaskForm] = useState(false);
     const [searchText, setSearchText] = useState('');
 
-
+    checkBrowserCompatibility()
     const addProduct = async (product) => {
         const request = await fetch('https://fakestoreapi.com/products',{
             method:"POST",
@@ -30,6 +31,7 @@ import SearchBar from "./components/SearchBar";
         const data = await request.json()
         console.log(data);
         setProductList([...productList, {id: data.id, ...product}]);
+        setCompleteProductList([...completeProductList, {id: data.id, ...product}])
     }
 
     const searchInList = (keyword) => {
@@ -52,7 +54,9 @@ import SearchBar from "./components/SearchBar";
 
   return (
       <div>
-
+          <Button
+              onClick={() => renderSpeech()}
+              >Speak</Button>
           <SearchBar searchText={searchText} onChange={searchInList} />
           <br />
           <Button
