@@ -5,8 +5,8 @@ import { useNavigate } from 'react-router';
 function Login() {
   const navigate = useNavigate();
 
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState('mor_2314');
+  const [password, setPassword] = useState('83r5^_');
   const [message, setMessage] = useState('');
 
   const handleUsernameChange = (event) => {
