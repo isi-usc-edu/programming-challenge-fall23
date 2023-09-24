@@ -8,7 +8,6 @@ import GroceryCard from '../GroceryCard/GroceryCard';
 import { createTheme } from '@mui/material/styles';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 
-
 const theme = createTheme();
 
 function CardComponent(props) {
@@ -37,29 +36,15 @@ function CardComponent(props) {
     }
   };
 
-  const [store, setStore] = useState([]); 
-  const addToCart = (item) => {
-    // Create a new object representing the item to be added to the cart
-    const newItem = {
-      id: item.id, // You can use a unique identifier for the item
-      name: item.todo,
-      image: item.image,
-    };
-
-    // Add the new item to the store array
-    setStore((prevStore) => [...prevStore, newItem]);
-  };
-
-
   return (
     <div>
       <Modal open={open} onClose={handleClose} className="todo__modal">
-        <div className="paper">
+        <div className="modal__content">
           <Button color="inherit" className="closeButton" onClick={handleClose}>
             <CloseIcon />
           </Button>
           <FormControl className="form">
-            <Typography className="headerText">Update Item</Typography>
+            <Typography className="modal__header">Update Item</Typography>
             <TextField
               placeholder={props.todo.todo}
               value={input}
@@ -89,33 +74,8 @@ function CardComponent(props) {
         <img alt="Grocery" src={props.todo.image} style={{ display: 'flex', alignItems: 'center', borderRadius: '10px' }} className="image" />
         <GroceryCard props={todoobj} />
       </ListItemAvatar>
-      <IconButton
-        edge="end"
-        color="primary"
-        aria-label="edit"
-        onClick={handleOpen}
-      >
-        <EditOutlinedIcon />
-      </IconButton>
-      <IconButton
-        edge="end"
-        color="secondary"
-        aria-label="delete"
-        onClick={() => console.log("Delete button clicked")}
-      >
-        <DeleteIcon />
-      </IconButton>
-      <IconButton
-        edge="end"
-        color="secondary"
-        aria-label="add to cart"
-        onClick={() => addToCart(todoobj)}
-      >
-        <AddIcon />
-      </IconButton>
     </div>
   );
 }
 
 export default CardComponent;
-
