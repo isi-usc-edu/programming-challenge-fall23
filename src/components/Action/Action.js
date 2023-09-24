@@ -97,7 +97,7 @@ function Actions({ todos }) {
           },
         }}
       >
-        <DialogTitle>Share via Email</DialogTitle>
+        <DialogTitle style={{ backgroundColor: '#1976d2', color: 'white', marginBottom:'10px' }}>Share via Email</DialogTitle>
         <DialogContent>
           <TextField
             label="Recipient's Email"
