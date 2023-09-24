@@ -14,6 +14,7 @@ import {
   Box,
 } from "@mui/material";
 import { ProductsAPI } from "../api/products";
+import { initializeSpeech, startRecognition } from "../utils/speechRecognition";
 
 function ShoppingList() {
   const initialItems = [
@@ -38,6 +39,8 @@ function ShoppingList() {
   const [results, setResults] = useState([]);
   const [anchorEl, setAnchorEl] = useState(null);
   const [items, setItems] = useState(initialItems);
+  const [listening, setListening] = useState(false);
+  const [recognition, setRecognition] = useState(null);
 
   const searchItems = async () => {
     const res = await ProductsAPI.searchProducts(searchTerm);
@@ -61,6 +64,27 @@ function ShoppingList() {
     setAnchorEl(null);
   };
 
+  const startSpeechRecognition = () => {
+    const speechSearch = (term) => {
+      setSearchTerm(term);
+      searchItems();
+    };
+
+    const toggleListening = () => {
+      setListening((listening) => !listening);
+    };
+
+    const recognition = initializeSpeech();
+    setRecognition(recognition);
+    startRecognition(recognition, toggleListening, speechSearch, toggleListening);
+  };
+
+  const stopSpeechRecognition = () => {
+    recognition.stop();
+    setRecognition(null);
+    setListening(false);
+  };
+
   const isPopoverOpen = Boolean(anchorEl);
 
   const ItemsPopover = (
@@ -79,8 +103,12 @@ function ShoppingList() {
     >
       <Box p={2}>
         <Box width={"100%"} display={"flex"} justifyContent={"space-between"}>
-          <Button variant="contained" color="primary">
-            Speak Item
+          <Button
+            variant="contained"
+            color={listening ? "secondary" : "primary"}
+            onClick={listening ? stopSpeechRecognition : startSpeechRecognition}
+          >
+            {listening ? "Stop Listening" : "Start Listening"}
           </Button>
           <TextField
             label="Search"
@@ -132,13 +160,16 @@ function ShoppingList() {
                       label="Quantity"
                       variant="outlined"
                       value={item.quantity}
-											type="number"
+                      type="number"
                       onChange={(e) => {
-												const updatedItem = { ...item, quantity: e.target.value };
-												const updatedResults = results.map((result) =>
-													result.id === item.id ? updatedItem : result
-												);
-												setResults(updatedResults);
+                        const updatedItem = {
+                          ...item,
+                          quantity: e.target.value,
+                        };
+                        const updatedResults = results.map((result) =>
+                          result.id === item.id ? updatedItem : result
+                        );
+                        setResults(updatedResults);
                       }}
                     />
                   </TableCell>
@@ -147,10 +178,10 @@ function ShoppingList() {
                       variant="contained"
                       color="secondary"
                       onClick={() => {
-												if(item.quantity < 1) return;
+                        if (item.quantity < 1) return;
                         setItems([...items, item]);
-												setResults([])
-												setSearchTerm("")
+                        setResults([]);
+                        setSearchTerm("");
                         closePopover();
                       }}
                     >
