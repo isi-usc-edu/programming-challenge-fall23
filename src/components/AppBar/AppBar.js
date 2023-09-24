@@ -5,9 +5,9 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-// import Button from '@mui/material/Button';
-// import Actions from './Actions'; // You should import Actions and ManageAccount components.
-// import ManageAccount from './ManageAccount';
+import Button from '@mui/material/Button';
+import ManageAccount from '../ManageAccount/manageAccount';
+import Actions from '../Action/Action';
 
 const theme = createTheme();
 
@@ -59,7 +59,29 @@ function Appbar({ todos, isLoggedIn, onLogin, onLogout }) {
             <Typography variant="h6" className={useStyles.title}>
               Grocery App
             </Typography>
+            {isLoggedIn ? (
+              <>
+                <Button color="inherit" onClick={handleLogoutClick}>
+                  Logout
+                </Button>
 
+                <Button color="inherit" onClick={handleAccountManagement}>
+                  Manage Account
+                </Button>
+
+                <Actions todos={todos}  />
+
+                {isAccountModalOpen && (
+                  <ManageAccount
+                    userEmail={username} // Replace with the user's actual email
+                    onDeleteAccount={handleDeleteAccount}
+                    onClose={() => setAccountModalOpen(false)}
+                  />
+                )}
+              </>
+            ) : (
+              <></>
+            )}
           </Toolbar>
         </AppBar>
       </div>
