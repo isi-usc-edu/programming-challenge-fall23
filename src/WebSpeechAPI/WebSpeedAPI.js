@@ -1,10 +1,10 @@
 import {finalGrammer, grammar as grammarList} from './GrammerList'
 const checkBrowserCompatibility = () => {
-    console.log("Checking Browser compactibility")
+    // console.log("Checking Browser compactibility")
     let SpeechRecognition = window.webkitSpeechRecognition || window.SpeechRecognition
     let SpeechGrammarList = window.SpeechGrammarList || window.webkitSpeechGrammarList
 
-    console.log(finalGrammer)
+    // console.log(finalGrammer)
 }
 
 let SpeechRecognition = window.webkitSpeechRecognition || window.SpeechRecognition
@@ -22,7 +22,7 @@ recognition.continuous = false;
 recognition.interimResults = false;
 recognition.maxAlternatives = 1;
 
-const renderSpeech = () => {
+const renderSpeech = (addProduct) => {
     console.log("Speak")
     recognition.start()
     recognition.onresult = (event) => {
@@ -31,6 +31,8 @@ const renderSpeech = () => {
         let word = event.results[0][0].transcript
 
         console.log(word)
+
+        addProduct({title: word})
     }
 }
 
