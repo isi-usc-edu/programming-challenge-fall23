@@ -1,9 +1,10 @@
 import {Checkbox, List, ListItem, ListItemButton, ListItemIcon, ListItemText} from "@mui/material";
 import React from "react";
 
-const ProductList = ({productList, updateProductList}) => {
+const ProductList = React.forwardRef(({productList, updateProductList}, ref) => {
+    console.log(ref)
     return (
-        <List>
+        <List ref={ref}>
             {
                 productList.map((product) => {
                     return (
@@ -16,7 +17,7 @@ const ProductList = ({productList, updateProductList}) => {
                 })
             }
         </List>
-    )
-}
+    );
+})
 
 export default ProductList
