@@ -10,6 +10,7 @@ import DialogActions from '@mui/material/DialogActions';
 import Button from '@mui/material/Button';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import { useNavigate } from 'react-router-dom';
+import './Action.css'; // Import your CSS file for styling
 
 function Actions({ todos }) {
   const [openDialog, setOpenDialog] = useState(false);
@@ -85,7 +86,17 @@ function Actions({ todos }) {
       <IconButton edge="end" color="inherit" aria-label="share" onClick={handleShare}>
         <ShareIcon />
       </IconButton>
-      <Dialog open={openDialog} onClose={handleCloseDialog}>
+      <Dialog
+        open={openDialog}
+        onClose={handleCloseDialog}
+        className={openDialog ? 'blur-background' : ''}
+        PaperProps={{
+          style: {
+            width: '30%', // Adjust the width as needed
+            maxWidth: 'none', // Allow the dialog to expand beyond the screen width
+          },
+        }}
+      >
         <DialogTitle>Share via Email</DialogTitle>
         <DialogContent>
           <TextField
