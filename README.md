@@ -58,15 +58,17 @@ The Let's Shop app is designed to assist senior citizens in managing their groce
 
 - **Authentication API**: The authentication feature of the app utilizes the Authentication API at [https://fakestoreapi.com/auth/login](https://fakestoreapi.com/auth/login) to securely authenticate users and grant access to their shopping lists.
 
+The Let's Shop app is designed to make grocery shopping more accessible and user-friendly for seniors. Enjoy a seamless and efficient shopping experience with the convenience of speech recognition, manual entry features, and secure login functionality.
+
 ## How to Run the App
 
 Follow these steps to run the Let's Shop app on your local machine:
 
-1. **Install Dependencies:**
 
+```bash
    npm i 
    npm i --force (incase of any dependency issues)
    npm start
 
-The Let's Shop app is designed to make grocery shopping more accessible and user-friendly for seniors. Enjoy a seamless and efficient shopping experience with the convenience of speech recognition, manual entry features, and secure login functionality.
+
 
