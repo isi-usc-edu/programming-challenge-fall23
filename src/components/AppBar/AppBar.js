@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import Button from '@mui/material/Button';
-import ManageAccount from '../ManageAccount/manageAccount';
+import ManageAccount from '../ManageAccount/ManageAccount';
 import Actions from '../Action/Action';
 
 const theme = createTheme();
