@@ -7,7 +7,6 @@ import Login from './components/Login/Login';
 import VoiceSynthesizer from './components/VoiceSynthesizer/voiceSynthesizer';
 import { Grid, Card, CardContent, createTheme } from '@mui/material'; // Update imports
 import { dummyProducts } from './dummyProducts';
-import Store from './components/Store/store';
 
 const theme = createTheme();
 
@@ -65,8 +64,7 @@ function Home() {
       });
   }, []);
 
-  const [store, setStore] = useState([]);
-
+ 
   const createTodo = (e) => {
     e.preventDefault();
     const trimmedInput = input.trim();
@@ -81,7 +79,7 @@ function Home() {
       return;
     }
 
-    setStore([
+    setTodos([
       {
         id: todos.length + 1,
         todo: trimmedInput,
@@ -92,7 +90,7 @@ function Home() {
         instock: 0,
         rating: 0,
       },
-      ...store,
+      ...todos,
     ]);
 
     setInput('');
@@ -110,7 +108,7 @@ function Home() {
 
       {isLoggedIn ? (
         <div>
-          <Grid container spacing={3} justify="center" className="App__grid">
+         <Grid container spacing={3} justify="center" className="App__grid">
             <Grid item xs={8} sm={8} md={4} lg={4}>
               <TextField
                 label="Create item"
@@ -147,7 +145,6 @@ function Home() {
                 </Card>
               </Grid>
             ))}
-            <Store products={store} />
           </Grid>
         </div>
       ) : (

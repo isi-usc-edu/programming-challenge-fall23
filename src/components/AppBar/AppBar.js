@@ -21,6 +21,10 @@ const useStyles = {
   title: {
     flexGrow: 1,
   },
+  test:{
+    marginRight: theme.spacing(2),
+    alignItems: 'right',
+  }
 };
 
 function Appbar({ todos, isLoggedIn, onLogin, onLogout }) {
@@ -59,8 +63,10 @@ function Appbar({ todos, isLoggedIn, onLogin, onLogout }) {
             <Typography variant="h6" className={useStyles.title}>
               Grocery App
             </Typography>
+           
             {isLoggedIn ? (
               <>
+               <div style={{marginLeft: '75%'}}>
                 <Button color="inherit" onClick={handleLogoutClick}>
                   Logout
                 </Button>
@@ -68,7 +74,8 @@ function Appbar({ todos, isLoggedIn, onLogin, onLogout }) {
                 <Button color="inherit" onClick={handleAccountManagement}>
                   Manage Account
                 </Button>
-
+               
+                </div>
                 <Actions todos={todos}  />
 
                 {isAccountModalOpen && (
@@ -82,6 +89,7 @@ function Appbar({ todos, isLoggedIn, onLogin, onLogout }) {
             ) : (
               <></>
             )}
+            
           </Toolbar>
         </AppBar>
       </div>
