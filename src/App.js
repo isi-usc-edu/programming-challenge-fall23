@@ -31,7 +31,7 @@ export default function MyApp() {
             setLoginPage(true);
         }
     }
-    console.log(username)
+    // console.log(username)
 
     const addProduct = async (product) => {
         const request = await fetch('https://fakestoreapi.com/products', {
@@ -79,7 +79,7 @@ export default function MyApp() {
                 loginPage ? (<div>
                     <Grid2 container spacing={2}>
                         <Grid2 xs={8}>
-                            <SearchBar searchText={searchText} onChange={searchInList}/>
+                            <SearchBar  searchText={searchText} onChange={searchInList}/>
                         </Grid2>
                         <Grid2 xs={4}>
                             <PrintList componentRef={componentRef}/>
