@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Typography from '@mui/material/Typography'
-import Appbar from './AppBar/AppBar';
+import AppBar from './AppBar/AppBar';
 
 const Content = ({ socketConnection }) => {
 
@@ -8,6 +8,7 @@ const Content = ({ socketConnection }) => {
 
     return (
       <>
+      hi
         <AppBar ></AppBar>
     <Typography variant="h1">hello!</Typography>
     </>

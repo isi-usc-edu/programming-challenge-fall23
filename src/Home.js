@@ -71,6 +71,8 @@ function Home() {
     e.preventDefault();
     const trimmedInput = input.trim();
 
+
+    console.log('trimmedINput', trimmedInput )
     if (trimmedInput === '') {
       setError('Please enter a valid todo.');
       return;
