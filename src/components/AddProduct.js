@@ -1,21 +1,29 @@
-import {Box, TextField} from "@mui/material";
-import React from "react";
-const AddProduct = ({}) => {
+import {Box, Button, TextField} from "@mui/material";
+import React, {useState} from "react";
+const AddProduct = ({addProduct}) => {
+    const [taskName, setTaskName] = useState("");
+    const handleSubmit = (e) =>{
+        e.preventDefault();
+        addProduct({title: taskName, isChecked: false})
+        setTaskName('')
+    }
+
   return (
-      <Box
-          component="form"
-          sx={{
-              '& .MuiTextField-root': { m: 1, width: '25ch' },
-          }}
-          noValidate
-          autoComplete="off"
-      >
+      <form onSubmit={handleSubmit} >
           <TextField
               required
               label={"Task Name"}
-              defaultValue={"Task Name"}
-              />
-      </Box>
+              // defaultValue={"Task Name"}
+              value={taskName}
+              onInput={(e) => setTaskName(e.target.value)}
+          />
+          <Button
+              // onClick={addNewProduct}
+              type="submit"
+          >
+              Add
+          </Button>
+      </form>
   )
 }
 
