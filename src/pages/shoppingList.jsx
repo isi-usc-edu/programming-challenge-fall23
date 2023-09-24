@@ -19,20 +19,19 @@ import { initializeSpeech, startRecognition } from "../utils/speechRecognition";
 function ShoppingList() {
   const initialItems = [
     {
-      id: 1,
+      id: -1,
       title: "Apples",
       price: 2.99,
-      image: "apple.jpg", // Replace with actual image URL
+      thumbnail: "apple.jpg", 
       quantity: 3,
     },
     {
       id: 2,
       title: "Bananas",
       price: 1.99,
-      image: "banana.jpg", // Replace with actual image URL
+      thumbnail: "banana.jpg", 
       quantity: 2,
     },
-    // Add more items here
   ];
 
   const [searchTerm, setSearchTerm] = useState("");
@@ -76,7 +75,12 @@ function ShoppingList() {
 
     const recognition = initializeSpeech();
     setRecognition(recognition);
-    startRecognition(recognition, toggleListening, speechSearch, toggleListening);
+    startRecognition(
+      recognition,
+      toggleListening,
+      speechSearch,
+      toggleListening
+    );
   };
 
   const stopSpeechRecognition = () => {
@@ -86,6 +90,34 @@ function ShoppingList() {
   };
 
   const isPopoverOpen = Boolean(anchorEl);
+
+  const downloadList = () => {
+    const element = document.createElement("a");
+
+    const text =
+      "Shopping List: \n Item \t Price \t Quantity \t Total\n" +
+      items.map(
+        (item) =>
+          `${item.title.padEnd(' ', 20)} \t  $${item.price.toFixed(2)} \t  ${
+            item.quantity
+          } \t $${(item.price * item.quantity).toFixed(2)}`
+      ).join("\n");
+		
+		console.log(text);
+
+    element.setAttribute(
+      "href",
+      "data:text/plain;charset=utf-8," + encodeURIComponent(text)
+    );
+    element.setAttribute("download", "ShoppingList.txt");
+
+    element.style.display = "none";
+    document.body.appendChild(element);
+
+    element.click();
+
+    document.body.removeChild(element);
+  };
 
   const ItemsPopover = (
     <Popover
@@ -149,7 +181,7 @@ function ShoppingList() {
                   <TableCell>${item.price.toFixed(2)}</TableCell>
                   <TableCell>
                     <img
-                      src={item.image}
+                      src={item.thumbnail}
                       alt={item.title}
                       width="80"
                       height="80"
@@ -219,7 +251,12 @@ function ShoppingList() {
               <TableCell>{item.title}</TableCell>
               <TableCell>${item.price.toFixed(2)}</TableCell>
               <TableCell>
-                <img src={item.image} alt={item.title} width="80" height="80" />
+                <img
+                  src={item.thumbnail}
+                  alt={item.title}
+                  width="80"
+                  height="80"
+                />
               </TableCell>
               <TableCell>{item.quantity}</TableCell>
               <TableCell>${(item.price * item.quantity).toFixed(2)}</TableCell>
@@ -259,6 +296,16 @@ function ShoppingList() {
       </Button>
       {ItemsPopover}
       {ShoppingTable}
+      <div>
+        {/* Download List Button */}
+        <Button variant="contained" color="primary" onClick={downloadList}>
+          Download List
+        </Button>
+        {/* Share Via Email */}
+        <Button variant="contained" color="primary">
+          Share Via Email
+        </Button>
+      </div>
     </div>
   );
 }
