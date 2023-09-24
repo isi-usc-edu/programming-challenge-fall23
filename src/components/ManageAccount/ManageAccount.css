@@ -17,8 +17,8 @@
     color: white;
   }
   
-  /* Add a blur effect to the main page when the dialog is open */
+/* 
   .blur-background {
-    filter: blur(5px); /* Apply a 5px blur effect to the background */
+    filter: blur(5px); /* Apply a 5px blur effect to the background 
   }
-  
+   */

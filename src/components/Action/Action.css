@@ -1,16 +1,7 @@
-/* Apply the backdrop filter to blur the background */
+
 .blur-background {
-    backdrop-filter: blur(10px); /* Adjust the blur intensity as needed */
-    background-color: rgba(0, 0, 255, 0.2); /* Adjust the background color and opacity */
+    backdrop-filter: blur(10px); 
+    background-color: rgba(0, 0, 255, 0.2);
     width: '200px';
-  }
-  
-  /* Styles for the modal dialog */
-  .actions-container {
-    /* Your existing styles for the container */
-  }
-  
-  .cart-count {
-    /* Your existing styles for the cart count */
   }
   

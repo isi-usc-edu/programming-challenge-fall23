@@ -27,8 +27,8 @@ function Actions({ todos }) {
 
   const handleCloseDialog = () => {
     setOpenDialog(false);
-    setEmailSent(false); // Reset emailSent state
-    setRecipientEmail(''); // Clear recipient email input
+    setEmailSent(false); 
+    setRecipientEmail('');
   };
 
   const navigate = useNavigate();
@@ -40,22 +40,22 @@ function Actions({ todos }) {
   const handleSendEmail = () => {
     const todoText = todos.map((todo) => todo.todo).join('\n');
 
-    // Create a text area element and set its value to the todoText
+
     const textArea = document.createElement('textarea');
     textArea.value = todoText;
 
-    // Append the text area element to the document body and select its contents
+   
     document.body.appendChild(textArea);
     textArea.select();
 
-    // Copy the selected text to the clipboard
+ 
     document.execCommand('copy');
 
-    // Remove the text area element from the document
+
     document.body.removeChild(textArea);
 
-    setEmailSent(true); // Set emailSent to true
-    setOpenDialog(false); // Close the dialog
+    setEmailSent(true); 
+    setOpenDialog(false); 
   };
 
   return (
@@ -92,8 +92,8 @@ function Actions({ todos }) {
         className={openDialog ? 'blur-background' : ''}
         PaperProps={{
           style: {
-            width: '30%', // Adjust the width as needed
-            maxWidth: 'none', // Allow the dialog to expand beyond the screen width
+            width: '30%',
+            maxWidth: 'none', 
           },
         }}
       >
