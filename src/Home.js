@@ -30,6 +30,8 @@ function Home() {
     margin: 5,
   };
 
+
+
   const [input, setInput] = useState('');
   const [todos, setTodos] = useState([]);
   const [error, setError] = useState('');
@@ -50,7 +52,7 @@ function Home() {
           todo: item.title.length > 15 ? item.title.slice(0, 25) + '...' : item.title,
           description: item.description.length > 30 ? item.description.slice(0, 30) + '...' : item.description,
           category: item.category,
-          image: item.image,
+          image: `https://source.unsplash.com/random/200x200?sig=${Math.random()}`,
           price: item.price,
           instock: item.rating.count,
           rating: item.rating.rate,
@@ -108,33 +110,35 @@ function Home() {
 
       {isLoggedIn ? (
         <div>
-         <Grid container spacing={3} justify="center" className="App__grid">
-            <Grid item xs={8} sm={8} md={4} lg={4}>
-              <TextField
-                label="Create item"
-                variant="outlined"
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                style={horizontalSpaceStyle}
-              />
+          <div style={{marginLeft: '30%', marginTop: '30px'}}>
+            <Grid container spacing={3} justify="center" className="App__grid">
+                <Grid item xs={8} sm={8} md={4} lg={4}>
+                <TextField
+                    label="Create item"
+                    variant="outlined"
+                    value={input}
+                    onChange={(e) => setInput(e.target.value)}
+                    style={horizontalSpaceStyle}
+                />
 
-              <VoiceSynthesizer
-                onVoiceInput={(voiceInput) => setInput(voiceInput)}
-              />
-              <p style={errorStyle} className="error-message">
-                {error}
-              </p>
-              <Button
-                disabled={!input}
-                type="submit"
-                variant="contained"
-                style={micBtnStyle}
-                onClick={createTodo}
-              >
-                SAVE
-              </Button>
+                <VoiceSynthesizer
+                    onVoiceInput={(voiceInput) => setInput(voiceInput)}
+                />
+                <p style={errorStyle} className="error-message">
+                    {error}
+                </p>
+                <Button
+                    disabled={!input}
+                    type="submit"
+                    variant="contained"
+                    style={micBtnStyle}
+                    onClick={createTodo}
+                >
+                    SAVE
+                </Button>
+                </Grid>
             </Grid>
-          </Grid>
+          </div>
           <Grid container spacing={3} justify="center" className="App__grid">
             {todos.map((todo) => (
               <Grid item xs={12} sm={6} md={4} lg={4} key={todo.id}>
