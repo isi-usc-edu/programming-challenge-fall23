@@ -2,7 +2,7 @@ import {Checkbox, List, ListItem, ListItemButton, ListItemIcon, ListItemText} fr
 import React from "react";
 
 const ProductList = React.forwardRef(({productList, updateProductList}, ref) => {
-    console.log(ref)
+    // console.log(ref)
     return (
         <List ref={ref}>
             {

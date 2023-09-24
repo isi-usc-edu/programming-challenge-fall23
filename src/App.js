@@ -10,15 +10,29 @@ import {render} from "@testing-library/react";
 import {Mic, Speaker, Add} from "@mui/icons-material";
 import {SpeakerComponent} from "./components/Speaker";
 import {PrintList} from "./components/PrintList"
+import {Login} from "./components/Login";
+import {Logout} from "./components/Logout";
 
 export default function MyApp() {
     const componentRef = useRef();
+    const [username, setUsername] = useState('');
+    const [loginPage, setLoginPage] = useState(false)
     const [productList, setProductList] = useState([]);
     const [completeProductList, setCompleteProductList] = useState([])
     const [addNewTaskForm, setAddNewTaskForm] = useState(false);
     const [searchText, setSearchText] = useState('');
 
-    checkBrowserCompatibility()
+
+    if(!loginPage) {
+        let localUsername = localStorage.getItem("username");
+        console.log(localUsername)
+        if(localUsername !== '' && localUsername !== null) {
+            setUsername(localUsername);
+            setLoginPage(true);
+        }
+    }
+    console.log(username)
+
     const addProduct = async (product) => {
         const request = await fetch('https://fakestoreapi.com/products', {
             method: "POST",
@@ -60,29 +74,37 @@ export default function MyApp() {
         const title = await renderSpeech(addProduct)
     }
     return (
-        <div>
-            <Grid2 container spacing={2}>
-                <Grid2 xs={8}>
-                    <SearchBar searchText={searchText} onChange={searchInList}/>
-                </Grid2>
-                <Grid2 xs={4}>
-                    <PrintList componentRef={componentRef} />
-                </Grid2>
-                <Grid2 xs={7}>
-                    <ProductList productList={productList} ref={componentRef}/>
-                </Grid2>
-                <Grid2 xs={5}>
-                    <Button
-                        onClick={() => setAddNewTaskForm(!addNewTaskForm)}
-                    >
-                        {addNewTaskForm ? 'Close' : 'Add New Task'}
-                    </Button>
-                    {addNewTaskForm && <AddProduct addProduct={addProduct}/>}
-                </Grid2>
+        <>
+            {
+                loginPage ? (<div>
+                    <Grid2 container spacing={2}>
+                        <Grid2 xs={8}>
+                            <SearchBar searchText={searchText} onChange={searchInList}/>
+                        </Grid2>
+                        <Grid2 xs={4}>
+                            <PrintList componentRef={componentRef}/>
+                            {"Hey, " + username}
+                            <Logout setLoginPage={setLoginPage} setUsername={setUsername} />
+                        </Grid2>
+                        <Grid2 xs={7}>
+                            <ProductList productList={productList} ref={componentRef}/>
+                        </Grid2>
+                        <Grid2 xs={5}>
+                            <Button
+                                onClick={() => setAddNewTaskForm(!addNewTaskForm)}
+                            >
+                                {addNewTaskForm ? 'Close' : 'Add New Task'}
+                            </Button>
+                            {addNewTaskForm && <AddProduct addProduct={addProduct}/>}
+                        </Grid2>
 
 
-                <SpeakerComponent addProduct={() => addNewProductSpeech()}/>
-            </Grid2>
-        </div>
+                        <SpeakerComponent addProduct={() => addNewProductSpeech()}/>
+                    </Grid2>
+                </div>) : (<Login setUsername={setUsername} setLoginPage={setLoginPage} />)
+            }
+        </>
+
+
     );
 }
