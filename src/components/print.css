@@ -1,0 +1,12 @@
+/* print.css */
+
+/* Hide elements when printing */
+@media print {
+    body * {
+        visibility: hidden;
+    }
+
+    .cart-item-list, .cart-header, .cart-list, .cart-item {
+        visibility: visible;
+    }
+}
