@@ -64,18 +64,18 @@ function Actions({ todos }) {
         <PrintIcon />
       </IconButton>
 
-      <IconButton edge="end" color="secondary" aria-label="cart" onClick={handleCartClick}>
+      <IconButton edge="end" color="inherit" aria-label="cart" onClick={handleCartClick}>
         <AddShoppingCartIcon />
         <span
           style={{
             position: 'absolute',
-            top: '1px',
-            right: '5px',
+            top: '-1px',
+            right: '1px',
             backgroundColor: 'white',
             borderRadius: '50%',
             padding: '5px',
             color: 'red',
-            fontSize: '15px',
+            fontSize: '10px',
             fontWeight: 'bold',
           }}
         >
