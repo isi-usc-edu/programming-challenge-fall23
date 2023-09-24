@@ -22,14 +22,14 @@ function ShoppingList() {
       id: -1,
       title: "Apples",
       price: 2.99,
-      thumbnail: "apple.jpg", 
+      thumbnail: "apple.jpg",
       quantity: 3,
     },
     {
       id: 2,
       title: "Bananas",
       price: 1.99,
-      thumbnail: "banana.jpg", 
+      thumbnail: "banana.jpg",
       quantity: 2,
     },
   ];
@@ -91,19 +91,24 @@ function ShoppingList() {
 
   const isPopoverOpen = Boolean(anchorEl);
 
+  const listToText = () => {
+    return (
+      "Shopping List: \n Item \t Price \t Quantity \t Total\n" +
+      items
+        .map(
+          (item) =>
+            `${item.title.padEnd(" ", 20)} \t  $${item.price.toFixed(2)} \t  ${
+              item.quantity
+            } \t $${(item.price * item.quantity).toFixed(2)}`
+        )
+        .join("\n")
+    );
+  };
+
   const downloadList = () => {
     const element = document.createElement("a");
 
-    const text =
-      "Shopping List: \n Item \t Price \t Quantity \t Total\n" +
-      items.map(
-        (item) =>
-          `${item.title.padEnd(' ', 20)} \t  $${item.price.toFixed(2)} \t  ${
-            item.quantity
-          } \t $${(item.price * item.quantity).toFixed(2)}`
-      ).join("\n");
-		
-		console.log(text);
+    const text = listToText();
 
     element.setAttribute(
       "href",
@@ -302,9 +307,16 @@ function ShoppingList() {
           Download List
         </Button>
         {/* Share Via Email */}
-        <Button variant="contained" color="primary">
-          Share Via Email
-        </Button>
+        <a
+          className="email"
+          title="Email a friend"
+          type="button"
+          href={`mailto:?subject=Shopping List&body=${listToText()}`}
+        >
+          <Button variant="contained" color="primary">
+            Share Via Email
+          </Button>
+        </a>
       </div>
     </div>
   );
