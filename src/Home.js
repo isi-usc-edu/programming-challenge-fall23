@@ -134,7 +134,7 @@ function Home() {
                     style={micBtnStyle}
                     onClick={createProduct}
                 >
-                    SAVE
+                    ADD
                 </Button>
                 </Grid>
             </Grid>
