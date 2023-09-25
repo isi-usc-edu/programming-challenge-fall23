@@ -10,7 +10,7 @@ import { dummyProducts } from './dummyProducts';
 
 const theme = createTheme();
 
-function Home() {
+function Home({ products, setProducts }) {
   const inputStyle = {
     marginBottom: theme.spacing(2),
     width: '100%',
@@ -31,9 +31,7 @@ function Home() {
   };
 
 
-
   const [input, setInput] = useState('');
-  const [products, setProducts] = useState([]);
   const [error, setError] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -58,12 +56,10 @@ function Home() {
           rating: item.rating.rate,
         }));
 
-        const allProducts = [...dummyProducts, ...apiProducts];
-
-        setProducts([...dummyProducts]);
+        const allProducts = [...dummyProducts];
+        setProducts(allProducts);
       });
   }, []);
-
  
   const createProduct = (e) => {
     e.preventDefault();

@@ -1,16 +1,19 @@
-// Import necessary dependencies
-import { AppBar } from '@mui/material'; // Updated import
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './Home';
-// import Store from './components/Store/store';
+import Store from './components/Store/Store';
 
 function App() {
+  const [products, setProducts] = useState([]);
+
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
-        {/* <Route path="/cart" element={<Store />} /> */}
+        <Route
+          path="/"
+          element={<Home products={products} setProducts={setProducts} />} // Pass 'products' and 'setProducts' as props
+        />
+        <Route path="/cart" element={<Store products={products} />} /> {/* Pass 'products' as a prop to Store */}
       </Routes>
     </Router>
   );
