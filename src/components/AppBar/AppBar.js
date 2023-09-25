@@ -91,7 +91,7 @@ function Appbar({ products, isLoggedIn, onLogin, onLogout }) {
                   <AccountCircleIcon fontSize="large"/>
                 </IconButton>
 
-                <IconButton edge="end" style={{ color: '#F74428' }} aria-label="print" onClick={handleDeleteAccount} >
+                <IconButton edge="end" style={{ color: '#F74428' }} aria-label="delete" onClick={handleDeleteAccount} >
                   <LogoutIcon fontSize="large"/>
                 </IconButton>
                 {isAccountModalOpen && (
