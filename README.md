@@ -32,6 +32,34 @@ The Grocery Stop website is a user-friendly online platform designed to assist s
 - Users can easily share their grocery lists via email, with emails sent directly to their registered email address, providing added convenience, especially beneficial for senior citizens who won't need to repeatedly type their email addresses. 
 - Additionally, users have the option to download their grocery lists.
 
+## Demo
+### Overview Page
+![alt text](https://github.com/Sumit68/programming-challenge-fall23/blob/main/screenshot1.png)
+![alt text](https://github.com/Sumit68/programming-challenge-fall23/blob/main/screenshot2.png)
+
+### Login Page
+![alt text](https://github.com/Sumit68/programming-challenge-fall23/blob/main/screenshot3.png)
+![alt text](https://github.com/Sumit68/programming-challenge-fall23/blob/main/screenshot4.png)
+![alt text](https://github.com/Sumit68/programming-challenge-fall23/blob/main/screenshot5.png)
+
+### Account Page
+![alt text](https://github.com/Sumit68/programming-challenge-fall23/blob/main/screenshot6.png)
+![alt text](https://github.com/Sumit68/programming-challenge-fall23/blob/main/screenshot7.png)
+![alt text](https://github.com/Sumit68/programming-challenge-fall23/blob/main/screenshot8.png)
+
+### List Page
+![alt text](https://github.com/Sumit68/programming-challenge-fall23/blob/main/screenshot9.png)
+![alt text](https://github.com/Sumit68/programming-challenge-fall23/blob/main/screenshot10.png)
+![alt text](https://github.com/Sumit68/programming-challenge-fall23/blob/main/screenshot11.png)
+
+### Grocery List Share
+![alt text](https://github.com/Sumit68/programming-challenge-fall23/blob/main/screenshot12.png)
+![alt text](https://github.com/Sumit68/programming-challenge-fall23/blob/main/screenshot13.png)
+![alt text](https://github.com/Sumit68/programming-challenge-fall23/blob/main/screenshot14.png)
+
+### MongoDB collections
+![alt text](https://github.com/Sumit68/programming-challenge-fall23/blob/main/screenshot15.png)
+
 ## Usage
 
 To run the project locally, follow these steps:
@@ -46,8 +74,8 @@ Ensure you have Node.js and MongoDB installed on your machine.
 
 ## Contact
 
--Name: Sumit Kothari
--Email: sumitkam@usc.edu
--Phone: +1 (213-477-6595)
--USC ID: 1839736237
+- Name: Sumit Kothari
+- Email: sumitkam@usc.edu
+- Phone: +1 (213-477-6595)
+- USC ID: 1839736237
 
