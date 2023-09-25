@@ -12,7 +12,7 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import { useNavigate } from 'react-router-dom';
 import './Action.css'; // Import your CSS file for styling
 
-function Actions({ todos }) {
+function Actions({ products }) {
   const [openDialog, setOpenDialog] = useState(false);
   const [recipientEmail, setRecipientEmail] = useState('');
   const [emailSent, setEmailSent] = useState(false);
@@ -38,11 +38,11 @@ function Actions({ todos }) {
   };
 
   const handleSendEmail = () => {
-    const todoText = todos.map((todo) => todo.todo).join('\n');
+    const productText = products.map((product) => product.product).join('\n');
 
 
     const textArea = document.createElement('textarea');
-    textArea.value = todoText;
+    textArea.value = productText;
 
    
     document.body.appendChild(textArea);
@@ -79,7 +79,7 @@ function Actions({ todos }) {
             fontWeight: 'bold',
           }}
         >
-          {todos.length}
+          {products.length}
         </span>
       </IconButton>
 

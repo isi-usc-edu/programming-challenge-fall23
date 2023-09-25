@@ -8,9 +8,7 @@ const Content = ({ socketConnection }) => {
 
     return (
       <>
-      hi
-        <AppBar ></AppBar>
-    <Typography variant="h1">hello!</Typography>
+      <AppBar ></AppBar>
     </>
     )
   }

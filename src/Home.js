@@ -33,7 +33,7 @@ function Home() {
 
 
   const [input, setInput] = useState('');
-  const [todos, setTodos] = useState([]);
+  const [products, setProducts] = useState([]);
   const [error, setError] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -42,14 +42,14 @@ function Home() {
   };
 
   useEffect(() => {
-    // Fetch todos from API
+    // Fetch products from API
     fetch('https://fakestoreapi.com/products?limit=5')
       .then((response) => response.json())
       .then((data) => {
-        // Transform and set API todos
-        const apiTodos = data.map((item) => ({
+        // Transform and set API products
+        const apiProducts = data.map((item) => ({
           id: item.id,
-          todo: item.title.length > 15 ? item.title.slice(0, 25) + '...' : item.title,
+          product: item.title.length > 15 ? item.title.slice(0, 25) + '...' : item.title,
           description: item.description.length > 30 ? item.description.slice(0, 30) + '...' : item.description,
           category: item.category,
           image: `https://source.unsplash.com/random/200x200?sig=${Math.random()}`,
@@ -58,42 +58,40 @@ function Home() {
           rating: item.rating.rate,
         }));
 
-        // Concatenate dummy todos with API todos
-        const allTodos = [...dummyProducts, ...apiTodos];
+        const allProducts = [...dummyProducts, ...apiProducts];
 
-        // Set the combined todos in state
-        setTodos(allTodos);
+        setProducts([...dummyProducts]);
       });
   }, []);
 
  
-  const createTodo = (e) => {
+  const createProduct = (e) => {
     e.preventDefault();
     const trimmedInput = input.trim();
 
     if (trimmedInput === '') {
-      setError('Please enter a valid todo.');
+      setError('Please enter a valid product.');
       return;
     }
 
-    if (todos.some((todo) => todo.todo === trimmedInput)) {
+    if (products.some((product) => product.product === trimmedInput)) {
       setError('Item already exists.');
       return;
     }
 
     
-    setTodos([
+    setProducts([
       {
-        id: todos.length + 1,
-        todo: trimmedInput,
+        id: products.length + 1,
+        product: trimmedInput,
         description: '',
         category: '',
-        image: todos.image ? todos.image : `https://source.unsplash.com/random/200x200?sig=${Math.random()}`,
+        image: products.image ? products.image : `https://source.unsplash.com/random/200x200?sig=${Math.random()}`,
         price: 0,
         instock: 0,
         rating: 0,
       },
-      ...todos,
+      ...products,
     ]);
 
     setInput('');
@@ -103,7 +101,7 @@ function Home() {
   return (
     <div className="App">
       <Appbar
-        todos={todos}
+        products={products}
         isLoggedIn={isLoggedIn}
         onLogin={() => setIsLoggedIn(true)}
         onLogout={() => setIsLoggedIn(false)}
@@ -133,7 +131,7 @@ function Home() {
                     type="submit"
                     variant="contained"
                     style={micBtnStyle}
-                    onClick={createTodo}
+                    onClick={createProduct}
                 >
                     SAVE
                 </Button>
@@ -141,11 +139,11 @@ function Home() {
             </Grid>
           </div>
           <Grid container spacing={3} justify="center" className="App__grid">
-            {todos.map((todo) => (
-              <Grid item xs={12} sm={6} md={4} lg={4} key={todo.id}>
+            {products.map((product) => (
+              <Grid item xs={12} sm={6} md={4} lg={4} key={product.id}>
                 <Card>
                   <CardContent>
-                    <CardComponent todo={todo} />
+                    <CardComponent product={product} />
                   </CardContent>
                 </Card>
               </Grid>

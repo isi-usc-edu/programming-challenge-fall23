@@ -27,7 +27,7 @@ const useStyles = {
   }
 };
 
-function Appbar({ todos, isLoggedIn, onLogin, onLogout }) {
+function Appbar({ products, isLoggedIn, onLogin, onLogout }) {
   const [isAccountModalOpen, setAccountModalOpen] = useState(false);
 
   const handleLogoutClick = () => {
@@ -76,7 +76,7 @@ function Appbar({ todos, isLoggedIn, onLogin, onLogout }) {
                 </Button>
                
                 </div>
-                <Actions todos={todos}  />
+                <Actions products={products}  />
 
                 {isAccountModalOpen && (
                   <ManageAccount

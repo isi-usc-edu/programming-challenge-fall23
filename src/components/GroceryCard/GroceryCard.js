@@ -8,7 +8,7 @@ function GroceryCard(props) {
 
   return (
     <Card sx={{ maxWidth: 400, margin: '16px', backgroundColor: '#AAB4BF' }}>
-      <CardHeader title={props.props.todo} subheader={props.props.category} />
+      <CardHeader title={props.props.product} subheader={props.props.category} />
       <CardContent sx={{ paddingTop: 0 }}>
         <Typography variant="body1">Description: {props.props.description}</Typography>
         <Typography variant="body1">Price: {props.props.price}</Typography>

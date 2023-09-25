@@ -1,10 +1,36 @@
+/* CardComponent.css */
+
 .todo__modal {
-    top: 20% !important;
-    left: 10% !important;
-}
-.todo__modalForm {
-    margin-top: 20px;
-}
-.todo__submit {
-    margin-left: 20px;
-}
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Center the modal vertically on the screen */
+  }
+  
+  .modal__content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    width: 400px; /* Set the width of the modal content */
+    text-align: center;
+  }
+  
+  .modal__header {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .textField {
+    margin-bottom: 20px;
+  }
+  
+  .button {
+    width: 100%;
+  }
+  
+  .errorText {
+    color: red;
+    margin-top: 10px;
+  }
+  

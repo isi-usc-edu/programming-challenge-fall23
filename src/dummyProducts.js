@@ -2,8 +2,8 @@
 export const dummyProducts = [
     {
       id: 1,
-      todo: 'Apple',
-      description: 'This is a dummy todo 1',
+      product: 'Apple',
+      description: 'This is a dummy product 1',
       category: 'Fruits',
       image: `https://source.unsplash.com/random/200x200?sig=${Math.random()}`,
       price: 9.99,
@@ -12,8 +12,8 @@ export const dummyProducts = [
     },
     {
       id: 2,
-      todo: 'Mango',
-      description: 'This is a dummy todo 2',
+      product: 'Mango',
+      description: 'This is a dummy product 2',
       category: 'Fruits',
       image: `https://source.unsplash.com/random/200x200?sig=${Math.random()}`,
       price: 12.99,
@@ -22,8 +22,8 @@ export const dummyProducts = [
     },
     {
       id: 3,
-      todo: 'Banana',
-      description: 'This is a dummy todo 3',
+      product: 'Banana',
+      description: 'This is a dummy product 3',
       category: 'Fruits',
       image: `https://source.unsplash.com/random/200x200?sig=${Math.random()}`,
       price: 2.99,
@@ -32,8 +32,8 @@ export const dummyProducts = [
     },
     {
       id: 4,
-      todo: 'Bread',
-      description: 'This is a dummy todo 4',
+      product: 'Bread',
+      description: 'This is a dummy product 4',
       category: 'Bakery',
       image: `https://source.unsplash.com/random/200x200?sig=${Math.random()}`,
       price: 3.49,
@@ -42,8 +42,8 @@ export const dummyProducts = [
     },
     {
       id: 5,
-      todo: 'Milk',
-      description: 'This is a dummy todo 5',
+      product: 'Milk',
+      description: 'This is a dummy product 5',
       category: 'Dairy',
       image: `https://source.unsplash.com/random/200x200?sig=${Math.random()}`,
       price: 2.19,
@@ -53,8 +53,8 @@ export const dummyProducts = [
     // Add more grocery items here
     {
       id: 6,
-      todo: 'Carrots',
-      description: 'This is a dummy todo 6',
+      product: 'Carrots',
+      description: 'This is a dummy product 6',
       category: 'Vegetables',
       image: `https://source.unsplash.com/random/200x200?sig=${Math.random()}`,
       price: 1.99,
@@ -63,8 +63,8 @@ export const dummyProducts = [
     },
     {
       id: 7,
-      todo: 'Rice',
-      description: 'This is a dummy todo 7',
+      product: 'Rice',
+      description: 'This is a dummy product 7',
       category: 'Grains',
       image: `https://source.unsplash.com/random/200x200?sig=${Math.random()}`,
       price: 4.49,
@@ -73,8 +73,8 @@ export const dummyProducts = [
     },
     {
       id: 8,
-      todo: 'Chicken',
-      description: 'This is a dummy todo 8',
+      product: 'Chicken',
+      description: 'This is a dummy product 8',
       category: 'Meat',
       image: `https://source.unsplash.com/random/200x200?sig=${Math.random()}`,
       price: 7.99,

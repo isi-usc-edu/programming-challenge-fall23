@@ -7,6 +7,7 @@ import AddIcon from '@mui/icons-material/Add';
 import GroceryCard from '../GroceryCard/GroceryCard';
 import { createTheme } from '@mui/material/styles';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
+import './CardComponent.css';
 
 const theme = createTheme();
 
@@ -14,8 +15,8 @@ function CardComponent(props) {
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState('');
   const [error, setError] = useState('');
-  const [todoText, setTodoText] = useState(props.todo.todo);
-  const todoobj = props.todo;
+  const [productText, setProductText] = useState(props.product.product);
+  const productobj = props.product;
 
   const handleOpen = () => {
     setOpen(true);
@@ -27,11 +28,11 @@ function CardComponent(props) {
     setError('');
   };
 
-  const updateTodo = () => {
+  const updateProduct = () => {
     if (input.trim() === '') {
       setError('Please enter a valid item.');
     } else {
-      setTodoText(input);
+      setProductText(input);
       handleClose();
     }
   };
@@ -43,37 +44,56 @@ function CardComponent(props) {
           <Button color="inherit" className="closeButton" onClick={handleClose}>
             <CloseIcon />
           </Button>
-          <FormControl className="form">
-            <Typography className="modal__header">Update Item</Typography>
-            <TextField
-              placeholder={props.todo.todo}
-              value={input}
-              onChange={(e) => {
-                setInput(e.target.value);
-                setError('');
-              }}
-              variant="outlined"
-              size="small"
-              className="textField"
-            />
-            <Button
-              type="submit"
-              color="primary"
-              variant="contained"
-              size="large"
-              className="button"
-              onClick={updateTodo}
-            >
-              Update
-            </Button>
-            {error && <Typography className="errorText">{error}</Typography>}
-          </FormControl>
+          <div className="form-container">
+            <FormControl className="form">
+              <Typography className="modal__header">Update Item</Typography>
+              <TextField
+                placeholder={props.product.product}
+                value={input}
+                onChange={(e) => {
+                  setInput(e.target.value);
+                  setError('');
+                }}
+                variant="outlined"
+                size="medium"  
+                className="textField"
+                fullWidth 
+              />
+              <Button
+                type="submit"
+                color="primary"
+                variant="contained"
+                size="large"
+                className="button"
+                onClick={updateProduct}
+              >
+                Update
+              </Button>
+              {error && <Typography className="errorText">{error}</Typography>}
+            </FormControl>
+          </div>
         </div>
       </Modal>
       <ListItemAvatar style={{ display: 'flex', alignItems: 'center' }}>
-        <img alt="Grocery" src={props.todo.image} style={{ display: 'flex', alignItems: 'center', borderRadius: '10px' }} className="image" />
-        <GroceryCard props={todoobj} />
+        <img alt="Grocery" src={props.product.image} style={{ display: 'flex', alignItems: 'center', borderRadius: '10px' }} className="image" />
+        <GroceryCard props={productobj} />
       </ListItemAvatar>
+      <IconButton
+        edge="end"
+        color="primary"
+        aria-label="edit"
+        onClick={handleOpen}
+      >
+        <EditOutlinedIcon />
+      </IconButton>
+      <IconButton
+        edge="end"
+        color="secondary"
+        aria-label="delete"
+        onClick={() => console.log("Delete button clicked")}
+      >
+        <DeleteIcon />
+      </IconButton>
     </div>
   );
 }

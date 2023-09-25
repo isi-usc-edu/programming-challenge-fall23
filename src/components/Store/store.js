@@ -21,7 +21,7 @@ function Store({ products }) {
               backgroundColor: '#AAB4BF',
             }}
           >
-            <CardHeader title={product.todo} subheader={product.category} />
+            <CardHeader title={product.product} subheader={product.category} />
             <CardContent>
               <Typography variant="body1">
                 Description: {product.description}
