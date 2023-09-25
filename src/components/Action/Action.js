@@ -61,11 +61,11 @@ function Actions({ products }) {
   return (
     <div>
       <IconButton edge="end" color="inherit" aria-label="print" onClick={handlePrint}>
-        <PrintIcon />
+        <PrintIcon fontSize="large" />
       </IconButton>
 
       <IconButton edge="end" color="inherit" aria-label="cart" onClick={handleCartClick}>
-        <AddShoppingCartIcon />
+        <AddShoppingCartIcon  fontSize="large" />
         <span
           style={{
             position: 'absolute',
@@ -84,7 +84,7 @@ function Actions({ products }) {
       </IconButton>
 
       <IconButton edge="end" color="inherit" aria-label="share" onClick={handleShare}>
-        <ShareIcon />
+        <ShareIcon  fontSize="large" />
       </IconButton>
       <Dialog
         open={openDialog}

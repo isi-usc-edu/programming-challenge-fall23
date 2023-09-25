@@ -8,6 +8,8 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Button from '@mui/material/Button';
 import ManageAccount from '../ManageAccount/ManageAccount';
 import Actions from '../Action/Action';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 const theme = createTheme();
 
@@ -64,20 +66,24 @@ function Appbar({ products, isLoggedIn, onLogin, onLogout }) {
               Grocery App
             </Typography>
            
+       
             {isLoggedIn ? (
               <>
-               <div style={{marginLeft: '75%'}}>
-                <Button color="inherit" onClick={handleLogoutClick}>
-                  Logout
-                </Button>
-
-                <Button color="inherit" onClick={handleAccountManagement}>
-                  Manage Account
-                </Button>
+          
+         
+          <div style={{marginLeft:"80%"}}>
+                <Actions products={products}  />
+                
                
                 </div>
-                <Actions products={products}  />
+                <span style={{ marginRight: "20px" }}></span>
+                <IconButton edge="end" aria-label="print"  style={{ color: '#FFCA33' }}onClick={handleAccountManagement} >
+                  <AccountCircleIcon fontSize="large"/>
+                </IconButton>
 
+                <IconButton edge="end" style={{ color: '#F74428' }} aria-label="print" onClick={handleDeleteAccount} >
+                  <LogoutIcon fontSize="large"/>
+                </IconButton>
                 {isAccountModalOpen && (
                   <ManageAccount
                     userEmail={username} // Replace with the user's actual email
