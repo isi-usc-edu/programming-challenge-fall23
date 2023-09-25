@@ -10,6 +10,7 @@ import ManageAccount from '../ManageAccount/ManageAccount';
 import Actions from '../Action/Action';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LogoutIcon from '@mui/icons-material/Logout';
+import { useNavigate } from 'react-router-dom';
 
 const theme = createTheme();
 
@@ -31,9 +32,15 @@ const useStyles = {
 
 function Appbar({ products, isLoggedIn, onLogin, onLogout }) {
   const [isAccountModalOpen, setAccountModalOpen] = useState(false);
-
+  const navigate = useNavigate();
   const handleLogoutClick = () => {
-    onLogout(); // Call the parent component's logout function
+    if (typeof onLogout === 'function') {
+      onLogout();
+    }
+
+    if (!onLogout || typeof onLogout !== 'function') {
+      navigate('/');
+    }
   };
 
   const handleAccountManagement = () => {

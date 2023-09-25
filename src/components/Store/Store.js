@@ -8,7 +8,6 @@ function Store({ products }) {
       <Appbar
         products={products}
         isLoggedIn={true}
-        
       />
     <TableContainer component={Paper}>
       <Table>
