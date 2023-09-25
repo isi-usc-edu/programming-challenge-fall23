@@ -11,9 +11,9 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={<Home products={products} setProducts={setProducts} />} // Pass 'products' and 'setProducts' as props
+          element={<Home products={products} setProducts={setProducts} />}
         />
-        <Route path="/cart" element={<Store products={products} />} /> {/* Pass 'products' as a prop to Store */}
+        <Route path="/cart" element={<Store products={products} />} />
       </Routes>
     </Router>
   );

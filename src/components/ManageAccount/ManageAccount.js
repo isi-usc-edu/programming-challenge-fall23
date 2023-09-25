@@ -1,16 +1,15 @@
 import React from 'react';
 import { Button, Dialog, DialogTitle, DialogContent, DialogActions, TextField } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import './ManageAccount.css'; // Import your CSS file for styling
+import './ManageAccount.css';
 
-// Create a custom theme
 const theme = createTheme({
   components: {
     MuiDialogTitle: {
       styleOverrides: {
         root: {
-          backgroundColor: '#1976d2', // Set the background color of the dialog header to blue
-          color: 'white', // Set text color to white
+          backgroundColor: '#1976d2',
+          color: 'white',
         },
       },
     },

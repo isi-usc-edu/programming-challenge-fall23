@@ -28,9 +28,9 @@ const styles = {
   },
   circularButton: {
     backgroundColor: 'gray',
-    borderRadius: '50%', // Makes the button circular
+    borderRadius: '50%',
     margin: '5px',
-    width: '50px', // Adjust the width and height as needed
+    width: '50px',
     height: '60px',
     transition: 'background-color 0.3s ease',
   },

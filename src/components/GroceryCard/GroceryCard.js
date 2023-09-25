@@ -1,11 +1,7 @@
 import React from 'react';
 import { Card, CardHeader, CardContent, Typography } from '@mui/material';
-import { createTheme } from '@mui/material/styles';
-
-const theme = createTheme();
 
 function GroceryCard(props) {
-
   return (
     <Card sx={{ maxWidth: 400, margin: '16px', backgroundColor: '#AAB4BF' }}>
       <CardHeader title={props.props.product} subheader={props.props.category} />

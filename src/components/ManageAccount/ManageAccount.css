@@ -1,24 +1,15 @@
-/* ManageAccount.css */
 
-/* Style the dialog content */
 .DialogContent-root {
-    padding: 16px; /* Add padding to the content */
+    padding: 16px;
   }
   
-  /* Style the Delete Account button */
+
   .MuiButton-root.color-error {
     background-color: red;
     color: white;
   }
-  
-  /* Style the Close button */
+
   .MuiButton-root.color-primary {
     background-color: #1976d2;
     color: white;
   }
-  
-/* 
-  .blur-background {
-    filter: blur(5px); /* Apply a 5px blur effect to the background 
-  }
-   */

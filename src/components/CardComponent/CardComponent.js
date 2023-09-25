@@ -16,10 +16,6 @@ function CardComponent(props) {
   const [error, setError] = useState('');
   const [productText, setProductText] = useState(props.product.product);
 
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
   const handleClose = () => {
     setOpen(false);
     setInput('');
@@ -36,7 +32,6 @@ function CardComponent(props) {
   };
 
   const handleDelete = () => {
-    // Call the deleteProduct prop with the product's id
     props.deleteProduct(props.product.id);
   };
 
@@ -90,7 +85,7 @@ function CardComponent(props) {
         <EditOutlinedIcon />
       </IconButton> */}
       <IconButton edge="end" color="secondary" aria-label="delete" onClick={handleDelete}>
-        <DeleteIcon />
+        <DeleteIcon  />
       </IconButton>
     </div>
   );

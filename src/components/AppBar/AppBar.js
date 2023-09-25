@@ -30,7 +30,7 @@ const useStyles = {
   }
 };
 
-function Appbar({ products, isLoggedIn, onLogin, onLogout }) {
+function Appbar({ products, onLogout }) {
   const [isAccountModalOpen, setAccountModalOpen] = useState(false);
   const navigate = useNavigate();
   const handleLogoutClick = () => {
@@ -68,23 +68,18 @@ function Appbar({ products, isLoggedIn, onLogin, onLogout }) {
               className={useStyles.menuButton}
               color="inherit"
               aria-label="menu"
-              onClick={()=>{  navigate('/')}} 
+              onClick={()=>{navigate('/')}} 
             >
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" onClick={()=>{  navigate('/')}} className={useStyles.title}>
               Grocery App
             </Typography>
-           
        
             {(localStorage.getItem('username'))  ? (
               <>
-          
-         
-          <div style={{marginLeft:"80%"}}>
-                <Actions products={products}  />
-                
-               
+                <div style={{marginLeft:"80%"}}>
+                  <Actions products={products}  />
                 </div>
                 <span style={{ marginRight: "20px" }}></span>
                 <IconButton edge="end" aria-label="print"  style={{ color: '#FFCA33' }}onClick={handleAccountManagement} >
@@ -105,7 +100,6 @@ function Appbar({ products, isLoggedIn, onLogin, onLogout }) {
             ) : (
               <></>
             )}
-            
           </Toolbar>
         </AppBar>
       </div>

@@ -11,10 +11,6 @@ import { dummyProducts } from './dummyProducts';
 const theme = createTheme();
 
 function Home({ products, setProducts }) {
-  const inputStyle = {
-    marginBottom: theme.spacing(2),
-    width: '100%',
-  };
 
   const errorStyle = {
     color: 'red',
@@ -44,11 +40,10 @@ function Home({ products, setProducts }) {
   };
 
   useEffect(() => {
-    // Fetch products from API
+    // Fetch products from fakestore API
     fetch('https://fakestoreapi.com/products?limit=5')
       .then((response) => response.json())
       .then((data) => {
-        // Transform and set API products
         const apiProducts = data.map((item) => ({
           id: item.id,
           product: item.title.length > 15 ? item.title.slice(0, 25) + '...' : item.title,

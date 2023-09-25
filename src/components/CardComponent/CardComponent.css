@@ -1,10 +1,8 @@
-/* CardComponent.css */
-
 .todo__modal {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh; /* Center the modal vertically on the screen */
+    height: 100vh; 
   }
   
   .modal__content {
@@ -12,7 +10,7 @@
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-    width: 400px; /* Set the width of the modal content */
+    width: 400px;
     text-align: center;
   }
   
