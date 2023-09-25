@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import Appbar from './components/AppBar/AppBar';
 import CardComponent from './components/CardComponent/CardComponent';
-import { TextField, Button } from '@mui/material'; // Update imports
+import { TextField, Button } from '@mui/material';
 import Login from './components/Login/Login';
 import VoiceSynthesizer from './components/VoiceSynthesizer/voiceSynthesizer';
-import { Grid, Card, CardContent, createTheme } from '@mui/material'; // Update imports
+import { Grid, Card, CardContent, createTheme } from '@mui/material';
 import { dummyProducts } from './dummyProducts';
 
 const theme = createTheme();
@@ -30,13 +30,17 @@ function Home({ products, setProducts }) {
     margin: 5,
   };
 
-
   const [input, setInput] = useState('');
   const [error, setError] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleUserLogin = (name) => {
     setIsLoggedIn(true);
+  };
+
+  const deleteProduct = (productId) => {
+    const updatedProducts = products.filter((product) => product.id !== productId);
+    setProducts(updatedProducts);
   };
 
   useEffect(() => {
@@ -60,7 +64,7 @@ function Home({ products, setProducts }) {
         setProducts(allProducts);
       });
   }, []);
- 
+
   const createProduct = (e) => {
     e.preventDefault();
     const trimmedInput = input.trim();
@@ -74,16 +78,14 @@ function Home({ products, setProducts }) {
       setError('Item already exists.');
       return;
     }
-    
 
-    
     setProducts([
       {
         id: products.length + 1,
         product: trimmedInput,
         description: `This is ${trimmedInput} product`,
         category: '',
-        image: products.image ? products.image : `https://source.unsplash.com/random/200x200?sig=${Math.random()}`,
+        image: `https://source.unsplash.com/random/200x200?sig=${Math.random()}`,
         price: Math.random().toFixed(2),
         instock: 0,
         rating: 0,
@@ -106,33 +108,31 @@ function Home({ products, setProducts }) {
 
       {isLoggedIn ? (
         <div>
-          <div style={{marginLeft: '30%', marginTop: '30px'}}>
+          <div style={{ marginLeft: '30%', marginTop: '30px' }}>
             <Grid container spacing={3} justify="center" className="App__grid">
-                <Grid item xs={8} sm={8} md={4} lg={4}>
+              <Grid item xs={8} sm={8} md={4} lg={4}>
                 <TextField
-                    label="Create item"
-                    variant="outlined"
-                    value={input}
-                    onChange={(e) => setInput(e.target.value)}
-                    style={horizontalSpaceStyle}
+                  label="Create item"
+                  variant="outlined"
+                  value={input}
+                  onChange={(e) => setInput(e.target.value)}
+                  style={horizontalSpaceStyle}
                 />
 
-                <VoiceSynthesizer
-                    onVoiceInput={(voiceInput) => setInput(voiceInput)}
-                />
+                <VoiceSynthesizer onVoiceInput={(voiceInput) => setInput(voiceInput)} />
                 <p style={errorStyle} className="error-message">
-                    {error}
+                  {error}
                 </p>
                 <Button
-                    disabled={!input}
-                    type="submit"
-                    variant="contained"
-                    style={micBtnStyle}
-                    onClick={createProduct}
+                  disabled={!input}
+                  type="submit"
+                  variant="contained"
+                  style={micBtnStyle}
+                  onClick={createProduct}
                 >
-                    ADD
+                  ADD
                 </Button>
-                </Grid>
+              </Grid>
             </Grid>
           </div>
           <Grid container spacing={3} justify="center" className="App__grid">
@@ -140,7 +140,7 @@ function Home({ products, setProducts }) {
               <Grid item xs={12} sm={6} md={4} lg={4} key={product.id}>
                 <Card>
                   <CardContent>
-                    <CardComponent product={product} />
+                    <CardComponent product={product} deleteProduct={deleteProduct} />
                   </CardContent>
                 </Card>
               </Grid>

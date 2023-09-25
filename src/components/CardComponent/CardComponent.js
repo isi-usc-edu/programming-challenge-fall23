@@ -3,7 +3,6 @@ import { FormControl, TextField, Button, Typography, IconButton, Modal } from '@
 import CloseIcon from '@mui/icons-material/Close';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import DeleteIcon from '@mui/icons-material/Delete';
-import AddIcon from '@mui/icons-material/Add';
 import GroceryCard from '../GroceryCard/GroceryCard';
 import { createTheme } from '@mui/material/styles';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
@@ -16,7 +15,6 @@ function CardComponent(props) {
   const [input, setInput] = useState('');
   const [error, setError] = useState('');
   const [productText, setProductText] = useState(props.product.product);
-  const productobj = props.product;
 
   const handleOpen = () => {
     setOpen(true);
@@ -37,6 +35,11 @@ function CardComponent(props) {
     }
   };
 
+  const handleDelete = () => {
+    // Call the deleteProduct prop with the product's id
+    props.deleteProduct(props.product.id);
+  };
+
   return (
     <div>
       <Modal open={open} onClose={handleClose} className="todo__modal">
@@ -55,9 +58,9 @@ function CardComponent(props) {
                   setError('');
                 }}
                 variant="outlined"
-                size="medium"  
+                size="medium"
                 className="textField"
-                fullWidth 
+                fullWidth
               />
               <Button
                 type="submit"
@@ -75,23 +78,18 @@ function CardComponent(props) {
         </div>
       </Modal>
       <ListItemAvatar style={{ display: 'flex', alignItems: 'center' }}>
-        <img alt="Grocery" src={props.product.image} style={{ display: 'flex', alignItems: 'center', borderRadius: '10px' }} className="image" />
-        <GroceryCard props={productobj} />
+        <img
+          alt="Grocery"
+          src={props.product.image}
+          style={{ display: 'flex', alignItems: 'center', borderRadius: '10px' }}
+          className="image"
+        />
+        <GroceryCard props={props.product} />
       </ListItemAvatar>
-      <IconButton
-        edge="end"
-        color="primary"
-        aria-label="edit"
-        onClick={handleOpen}
-      >
+      {/* <IconButton edge="end" color="primary" aria-label="edit" onClick={handleOpen}>
         <EditOutlinedIcon />
-      </IconButton>
-      <IconButton
-        edge="end"
-        color="secondary"
-        aria-label="delete"
-        onClick={() => console.log("Delete button clicked")}
-      >
+      </IconButton> */}
+      <IconButton edge="end" color="secondary" aria-label="delete" onClick={handleDelete}>
         <DeleteIcon />
       </IconButton>
     </div>

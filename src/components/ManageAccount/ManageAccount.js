@@ -9,7 +9,7 @@ const theme = createTheme({
     MuiDialogTitle: {
       styleOverrides: {
         root: {
-          backgroundColor: 'blue', // Set the background color of the dialog header to blue
+          backgroundColor: '#1976d2', // Set the background color of the dialog header to blue
           color: 'white', // Set text color to white
         },
       },
