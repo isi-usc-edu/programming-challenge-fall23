@@ -74,20 +74,21 @@ function Home() {
       return;
     }
 
-    if (products.some((product) => product.product === trimmedInput)) {
+    if (products.some((product) => product.product.toLowerCase() === trimmedInput.toLowerCase())) {
       setError('Item already exists.');
       return;
     }
+    
 
     
     setProducts([
       {
         id: products.length + 1,
         product: trimmedInput,
-        description: '',
+        description: `This is ${trimmedInput} product`,
         category: '',
         image: products.image ? products.image : `https://source.unsplash.com/random/200x200?sig=${Math.random()}`,
-        price: 0,
+        price: Math.random().toFixed(2),
         instock: 0,
         rating: 0,
       },
