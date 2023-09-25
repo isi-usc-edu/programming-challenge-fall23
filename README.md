@@ -36,6 +36,7 @@ On click of carticon on top, its takes to store
 
 ![image](https://github.com/isi-usc-edu/programming-challenge-fall23/assets/42492660/cf1426a3-0f21-4b5a-a685-378846e26615)
 
+![image](https://github.com/ShrutikaSingh/programming-challenge-fall23/assets/42492660/00bda364-b1a0-4060-bd9f-ff241ae615bb)
 
 ## Print the store
 
