@@ -1,0 +1,30 @@
+extends base
+block content
+  main.main
+    input#search-bar(type="text", placeholder="Search groceries...")
+    .card-container
+      each grocery in grocerys
+        .card
+          
+          .card__header
+            button.card__close-button(data-grocery-id=`${grocery.id}`) ×
+            .card__picture
+              .card__picture-overlay &nbsp;
+              img.card__picture-img(src=grocery.imageLink)
+            h3.heading-tertirary
+                span= grocery.name
+
+          .card__details
+            p.card__text= `Price: $${grocery.price}`
+            p.card__text= `Quantity: ${grocery.quantity}`
+            .card__data
+              
+
+          .card__footer 
+  a.share.btn-default(href='javascript:void(0)', id='share-list-button') Share My List
+  a.share.btn-default(href='javascript:void(0)', id='share-list-buttondownload') Download My List  
+      script.
+        const groceriesData = !{JSON.stringify(grocerys)};
+        document.getElementById('share-list-button').setAttribute('data-grocerys', JSON.stringify(groceriesData));
+        document.getElementById('share-list-buttondownload').setAttribute('data-grocerys', JSON.stringify(groceriesData));
+      script(src="public/js/index.js") 

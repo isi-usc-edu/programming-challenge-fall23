@@ -1,0 +1,32 @@
+extends base
+block content
+  main.main
+    .search-container
+      input#search-bar(type="text", placeholder="Search groceries...")
+    .card-container
+      each grocery in grocerys
+        .card
+          .card__header
+            .card__picture
+              .card__picture-overlay &nbsp;
+              if grocery && grocery.imageLink
+                img.card__picture-img(src=grocery.imageLink)
+              else
+                p No image available
+            h3.heading-tertirary
+                span= grocery.name
+
+          .card__details
+            p.card__text= `Price: $${grocery.price}`
+            p.card__text= `Instock: ${grocery.Instock}`
+            .card__data
+              input.card__counter(type="number", min="0", value="0", data-grocery-id=grocery.id)
+          .card__footer
+            button.buy-now.btn.btn-default(data-grocery-id=`${grocery.id}`) Add to List
+          
+      script.
+        const groceriesData = !{JSON.stringify(grocerys)};
+      script(src="public/js/bundle.js")
+      script(src="public/js/main.js")
+
+

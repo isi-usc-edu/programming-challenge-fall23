@@ -1,0 +1,153 @@
+[
+        {
+            "id": 1,
+            "name": "Apples",
+            "price": 1.99
+        },
+        {
+            "id": 2,
+            "name": "Bananas",
+            "price": 0.99
+        },
+        {
+            "id": 3,
+            "name": "Oranges",
+            "price": 2.49
+        },
+        {
+            "id": 4,
+            "name": "Carrots",
+            "price": 1.29
+        },
+        {
+            "id": 5,
+            "name": "Broccoli",
+            "price": 1.79
+        },
+        {
+            "id": 6,
+            "name": "Milk",
+            "price": 2.99
+        },
+        {
+            "id": 7,
+            "name": "Bread",
+            "price": 2.49
+        },
+        {
+            "id": 8,
+            "name": "Eggs",
+            "price": 1.99
+        },
+        {
+            "id": 9,
+            "name": "Chicken Breast",
+            "price": 5.99
+        },
+        {
+            "id": 10,
+            "name": "Salmon",
+            "price": 7.99
+        },
+        {
+            "id": 11,
+            "name": "Potatoes",
+            "price": 1.49
+        },
+        {
+            "id": 12,
+            "name": "Tomatoes",
+            "price": 2.29
+        },
+        {
+            "id": 13,
+            "name": "Cucumbers",
+            "price": 1.79
+        },
+        {
+            "id": 14,
+            "name": "Onions",
+            "price": 1.29
+        },
+        {
+            "id": 15,
+            "name": "Pasta",
+            "price": 1.49
+        },
+        {
+            "id": 16,
+            "name": "Rice",
+            "price": 2.99
+        },
+        {
+            "id": 17,
+            "name": "Ground Beef",
+            "price": 4.99
+        },
+        {
+            "id": 18,
+            "name": "Chicken Thighs",
+            "price": 3.99
+        },
+        {
+            "id": 19,
+            "name": "Spinach",
+            "price": 2.49
+        },
+        {
+            "id": 20,
+            "name": "Strawberries",
+            "price": 3.99
+        },
+        {
+            "id": 21,
+            "name": "Blueberries",
+            "price": 4.99
+        },
+        {
+            "id": 22,
+            "name": "Yogurt",
+            "price": 2.29
+        },
+        {
+            "id": 23,
+            "name": "Cheese",
+            "price": 3.49
+        },
+        {
+            "id": 24,
+            "name": "Ice Cream",
+            "price": 4.99
+        },
+        {
+            "id": 25,
+            "name": "Cereal",
+            "price": 3.29
+        },
+        {
+            "id": 26,
+            "name": "Coffee",
+            "price": 5.99
+        },
+        {
+            "id": 27,
+            "name": "Tea",
+            "price": 2.99
+        },
+        {
+            "id": 28,
+            "name": "Bottled Water",
+            "price": 0.99
+        },
+        {
+            "id": 29,
+            "name": "Toilet Paper",
+            "price": 4.49
+        },
+        {
+            "id": 30,
+            "name": "Paper Towels",
+            "price": 3.99
+        }
+    ]
+    
