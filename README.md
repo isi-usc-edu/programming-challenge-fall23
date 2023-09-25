@@ -1,70 +1,20 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Flow and features of the application
+- The home page of the application welcomes the user and allows the user to navigate to the login page.
+- User can type in any name to "login". The login page is to just simulate the regular login flow of the application.
+- Once "logged in", the user can add an item to the list by typing or by pressing the mic icon, which will allow the user to speak the item name.
+- On matching with one of the items in the database, the item will show up in the list with its price.
+- User can also remove an item from the list.
+- Once the user is satisfied with the list, the user can either place the order, or print the list of items, or send an email in which the list items and their prices will be included.
+- Upon clicking the "Send Email" button, the application will populate the items with their prices along with the final price into the body of the email where the user can enter the recipient's email id. Clicking on the "Send" link will open the email client application.
+- Upon clicking the "Place Order" button, a POST request will be sent which will return the actual items available in the database, along with their discounted price. This will be displayed in a modal where the user can confirm the order.
+- Upon clicking the "Print" button, the user can choose to print or download the part of the page containing the list of items.
 
-## Available Scripts
+# Edge cases
+- The item database has "iPhone 9" as its first item. Hence, if the item added to the list has a very short name, it might be interpreted as any of the items in the database. And by the nature of the code written, it will pick the first item, and hence match with "iPhone 9". This may cause repetition of item ids which will display abnormal behaviour when deleting those items.
+- If the item added to the list does not match even slightly with any of the items in the database, then the price of the item will be "$-" and it won't be included in the total bill.
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Contact details
+- Name: Naman Lad
+- Email: nklad@usc.edu
+- Phone: +1 2136197747
