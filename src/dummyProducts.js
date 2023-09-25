@@ -81,5 +81,15 @@ export const dummyProducts = [
       instock: 6,
       rating: 4.3,
     },
+    {
+      id: 9,
+      product: 'Butter',
+      description: 'This is a dummy product 9',
+      category: 'Bakery',
+      image: `https://source.unsplash.com/random/200x200?sig=${Math.random()}`,
+      price: 9.39,
+      instock: 3,
+      rating: 4.7,
+    },
   ];
   

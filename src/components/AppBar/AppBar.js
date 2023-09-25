@@ -36,10 +36,12 @@ function Appbar({ products, isLoggedIn, onLogin, onLogout }) {
   const handleLogoutClick = () => {
     if (typeof onLogout === 'function') {
       onLogout();
+      localStorage.clear();
     }
 
     if (!onLogout || typeof onLogout !== 'function') {
       navigate('/');
+      localStorage.clear();
     }
   };
 
@@ -66,15 +68,16 @@ function Appbar({ products, isLoggedIn, onLogin, onLogout }) {
               className={useStyles.menuButton}
               color="inherit"
               aria-label="menu"
+              onClick={()=>{  navigate('/')}} 
             >
               <MenuIcon />
             </IconButton>
-            <Typography variant="h6" className={useStyles.title}>
+            <Typography variant="h6" onClick={()=>{  navigate('/')}} className={useStyles.title}>
               Grocery App
             </Typography>
            
        
-            {isLoggedIn ? (
+            {(localStorage.getItem('username'))  ? (
               <>
           
          

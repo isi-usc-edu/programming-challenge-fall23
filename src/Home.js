@@ -106,7 +106,7 @@ function Home({ products, setProducts }) {
         onLogout={() => setIsLoggedIn(false)}
       />
 
-      {isLoggedIn ? (
+      {isLoggedIn || (localStorage.getItem('username')) ? (
         <div>
           <div style={{ marginLeft: '30%', marginTop: '30px' }}>
             <Grid container spacing={3} justify="center" className="App__grid">
