@@ -1,16 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import emailjs from '@emailjs/browser';
 import IconButton from '@mui/material/IconButton';
 import PrintIcon from '@mui/icons-material/Print';
 import ShareIcon from '@mui/icons-material/Share';
 import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
-import TextField from '@mui/material/TextField';
 import DialogActions from '@mui/material/DialogActions';
 import Button from '@mui/material/Button';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import { useNavigate } from 'react-router-dom';
-import './Action.css'; // Import your CSS file for styling
+import TextField from '@mui/material/TextField';
+import './Action.css'; 
 
 function Actions({ products }) {
   const [openDialog, setOpenDialog] = useState(false);
@@ -27,7 +28,7 @@ function Actions({ products }) {
 
   const handleCloseDialog = () => {
     setOpenDialog(false);
-    setEmailSent(false); 
+    setEmailSent(false);
     setRecipientEmail('');
   };
 
@@ -37,27 +38,30 @@ function Actions({ products }) {
     navigate('/cart');
   };
 
-  const handleSendEmail = () => {
-    const productText = products.map((product) => product.product).join('\n');
+  const productDetails = products.map((product) => {
+    return `${product.product} - Price: ${product.price}, Quantity: ${product.instock}`;
+  });
 
+  const message = `Today's Grocery List :\n${productDetails.join('\n')}`;
 
-    const textArea = document.createElement('textarea');
-    textArea.value = productText;
-
-   
-    document.body.appendChild(textArea);
-    textArea.select();
-
- 
-    document.execCommand('copy');
-
-
-    document.body.removeChild(textArea);
-
-    setEmailSent(true); 
-    setOpenDialog(false); 
+  const sendEmail = (e) => {
+    e.preventDefault();
+  
+    emailjs
+      .sendForm('service_mmrzdza', 'template_6labw5d', e.target, 'es1n0oRONMUic3Yjb')
+      .then(
+        (result) => {
+          console.log('Email sent successfully', result.text);
+          setEmailSent(true);
+          setOpenDialog(false);
+        },
+        (error) => {
+          console.error('Email send error', error.text);
+        }
+      );
   };
-
+  
+  const form = useRef();
   return (
     <div>
       <IconButton edge="end" color="inherit" aria-label="print" onClick={handlePrint}>
@@ -83,8 +87,9 @@ function Actions({ products }) {
         </span>
       </IconButton>
 
+
       <IconButton edge="end" color="inherit" aria-label="share" onClick={handleShare}>
-        <ShareIcon  fontSize="large" />
+        <ShareIcon fontSize="large" />
       </IconButton>
       <Dialog
         open={openDialog}
@@ -93,26 +98,61 @@ function Actions({ products }) {
         PaperProps={{
           style: {
             width: '30%',
-            maxWidth: 'none', 
+            maxWidth: 'none',
           },
         }}
       >
-        <DialogTitle style={{ backgroundColor: '#1976d2', color: 'white', marginBottom:'10px' }}>Share via Email</DialogTitle>
+        <DialogTitle style={{ backgroundColor: '#1976d2', color: 'white', marginBottom: '10px' }}>
+          Share via Email
+        </DialogTitle>
         <DialogContent>
-          <TextField
-            label="Recipient's Email"
-            fullWidth
-            variant="outlined"
-            value={recipientEmail}
-            onChange={(e) => setRecipientEmail(e.target.value)}
-          />
+          <form ref={form} onSubmit={sendEmail}>
+            <TextField
+              label="Name"
+              type="text"
+              name="user_name"
+              variant="outlined"
+              fullWidth
+              margin="normal"
+              required
+            />
+            <TextField
+              label="Email"
+              type="email"
+              name="user_email"
+              variant="outlined"
+              fullWidth
+              margin="normal"
+              required
+              value={recipientEmail} 
+              onChange={(e) => setRecipientEmail(e.target.value)}
+            />
+            <TextField
+              label="Message"
+              name="message"
+              multiline
+              rows={4}
+              variant="outlined"
+              fullWidth
+              margin="normal"
+              required
+              value={message}
+            />
+            <Button
+              type="submit"
+              variant="contained"
+              color="primary"
+              fullWidth
+              disabled={!recipientEmail || emailSent}
+              style={{ marginTop: '10px' }}
+            >
+              {emailSent ? 'Email Sent' : 'Send Email'}
+            </Button>
+          </form>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleCloseDialog} color="primary">
             Cancel
-          </Button>
-          <Button onClick={handleSendEmail} color="primary" disabled={!recipientEmail || emailSent}>
-            {emailSent ? 'Email Sent' : 'Send Email'}
           </Button>
         </DialogActions>
       </Dialog>
