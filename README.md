@@ -1,70 +1,53 @@
-# Getting Started with Create React App
+# Grocery Stop Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+The Grocery Stop website is a user-friendly online platform designed to assist senior citizens in selecting and managing their grocery needs efficiently. This README.md file provides an overview of the project and its key features.
 
-In the project directory, you can run:
+## Technologies
+- Node.js
+- Express.js
+- MongoDB
+- Axios
+- Eslint
+  
+## Features
 
-### `npm start`
+### 1. Grocery Selection
+- Senior citizens can easily browse and select the groceries they need.
+- An intuitive and user-friendly UI enhances the grocery selection process.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 2. List Management
+- Users have access to a dedicated section where they can review and manage their selected groceries.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 3. Secure Login
+- The website utilizes JWT tokens for secure user authentication.
+- User sessions are maintained using cookies to avoid repeated logins.
+- Simplified login for senior citizens by enabling them to use their birthdate as a credential. Robust encryption ensures security while maintaining user-friendliness.
 
-### `npm test`
+### 4. MongoDB Integration
+- MongoDB, a NoSQL database, is employed for efficient storage and retrieval of user, grocery, and list data.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 5. Grocery List Sharing
+- Users can easily share their grocery lists via email, with emails sent directly to their registered email address, providing added convenience, especially beneficial for senior citizens who won't need to repeatedly type their email addresses. 
+- Additionally, users have the option to download their grocery lists.
 
-### `npm run build`
+## Usage
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To run the project locally, follow these steps:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Clone the repository to your local machine.
+2. Navigate to the project directory.
+3. Install the required dependencies using `npm install` or `yarn install`.
+4. Start the application using `npm start` or `yarn start`.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Ensure you have Node.js and MongoDB installed on your machine.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Contact
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+-Name: Sumit Kothari
+-Email: sumitkam@usc.edu
+-Phone: +1 (213-477-6595)
+-USC ID: 1839736237
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
