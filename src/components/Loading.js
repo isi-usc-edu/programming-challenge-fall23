@@ -21,7 +21,7 @@ const Loading = ({ text }) => {
 
   const renderLoading = () => {
     return (
-      <Wrapper>
+      <Wrapper style={{paddingLeft: '20px'}}>
         <Typography variant="h6">
           {text}
         </Typography>

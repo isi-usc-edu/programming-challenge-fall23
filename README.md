@@ -1,3 +1,9 @@
+# Function
+Enter a name and login.
+The page has two parts. One of part is called grocery list, which show all kind of goods can choose. In this part, users could type words in input box, or simply type "Start Speech Recoginition" button to input words by speeching. when clicking search, it will filter by keywords.
+The other part is called cart list, which show all goods the user intending to buy. In this part, users could share with there friends by clicking "Send Email" button or clicking "Save as PDF" to store it in their own computers.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
