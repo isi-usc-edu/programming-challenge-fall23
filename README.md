@@ -69,7 +69,7 @@ To run the project locally, follow these steps:
 3. Install the required dependencies using `npm install` or `yarn install`.
 4. Start the application using `npm start` or `yarn start`.
 
-[User Manual](https://github.com/Sumit68/programming-challenge-fall23/blob/main/SumitKothari_GroceryStore_UserManual.pdf)
+For a comprehensive understanding of the project's scope, functionality, and installation procedures, please refer to the [user manual](https://github.com/Sumit68/programming-challenge-fall23/blob/main/SumitKothari_GroceryStore_UserManual.pdf)
 
 Ensure you have Node.js and MongoDB installed on your machine.
 
