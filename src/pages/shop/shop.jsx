@@ -59,12 +59,12 @@ export const Shop = () => {
 
       
         <input type="text" id="fname" name="firstname" placeholder={transcript}/>
-        <span className="buttons">
+        
         <button className='button button1' onClick={SpeechRecognition.startListening}>Start</button>
         
         {/* <button onClick={SpeechRecognition.stopListening}>Stop</button> */}
         <button className='button button2' onClick={resetTranscript}>X</button>
-      </span>
+      
   
 
       

@@ -54,7 +54,7 @@
 }
 
 .buttons{
-  display: inline-block;
+  display: inline-flex;
 }
 
 .button1 {
@@ -88,7 +88,7 @@ input[type=text], select {
   padding: 12px 20px;
   margin: 8px 24px;
   margin-left: 100px;
-  display: inline-block;
+  display: inline-flex;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
