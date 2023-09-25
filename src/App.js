@@ -1,98 +1,110 @@
-import React, { useEffect, useState } from 'react'
+import React, {useEffect, useRef, useState} from "react";
+import {productList as productListData} from "./testData";
+import ProductList from "./components/ProductList";
+import AddProduct from "./components/AddProduct";
+import {Button, IconButton, Fab, Grid,} from "@mui/material";
+import Grid2 from "@mui/material/Unstable_Grid2";
+import SearchBar from "./components/SearchBar";
+import {checkBrowserCompatibility, renderSpeech} from './WebSpeechAPI/WebSpeedAPI'
+import {render} from "@testing-library/react";
+import {Mic, Speaker, Add} from "@mui/icons-material";
+import {SpeakerComponent} from "./components/Speaker";
+import {PrintList} from "./components/PrintList"
+import {Login} from "./components/Login";
+import {Logout} from "./components/Logout";
 
-import CssBaseline from '@mui/material/CssBaseline'
-
-import {
-  createTheme,
-  ThemeProvider,
-  responsiveFontSizes,
-} from '@mui/material/styles'
-
-import Stack from '@mui/material/Stack'
-
-import Content from './components/Content'
-import Loading from './components/Loading'
-
-
-let theme = createTheme({
-  palette: {
-    primary: {
-      main: '#de6720',
-    },
-    secondary: {
-      main: '#0077ea',
-    },
-  },
-  components: {
-    MuiCssBaseline: {
-      styleOverrides: {
-        html: {
-          WebkitFontSmoothing: 'auto',
-        },
-        body: {
-          background: '#fefefe',
-          overflow: 'hidden',
-          padding: '5px',
-          width: '450px',
-          color: '#333',
-        },
-      },
-    },
-    MuiLinearProgress: {
-      styleOverrides: {
-        root: {
-          backgroundColor: 'rgba(222, 103, 32, 0.25)',
-        },
-        bar: {
-          backgroundColor: 'rgba(222, 103, 32, 1)',
-        },
-      },
-    },
-  },
-})
-theme = responsiveFontSizes(theme)
+export default function MyApp() {
+    const componentRef = useRef();
+    const [username, setUsername] = useState('');
+    const [loginPage, setLoginPage] = useState(false)
+    const [productList, setProductList] = useState([]);
+    const [completeProductList, setCompleteProductList] = useState([])
+    const [addNewTaskForm, setAddNewTaskForm] = useState(false);
+    const [searchText, setSearchText] = useState('');
 
 
-const App = () => {
-
-  const [loading, setLoading] = useState(false)
-
-  useEffect(() => {
-
-    // show a loading indicator
-    setLoading(true)
-
-    setTimeout(() => {
-
-      // hide loading indicator
-      setLoading(false)
-    }, 1000) // 1 second
-
-    // hide loading indicator
-    return () => {
-      setLoading(false)
+    if(!loginPage) {
+        let localUsername = localStorage.getItem("username");
+        console.log(localUsername)
+        if(localUsername !== '' && localUsername !== null) {
+            setUsername(localUsername);
+            setLoginPage(true);
+        }
     }
-  }, [])
+    // console.log(username)
 
-  const renderLoading = () => {
-    if ( !loading ) { return }
-    return <Loading text='loading..' />
-  }
+    const addProduct = async (product) => {
+        const request = await fetch('https://fakestoreapi.com/products', {
+            method: "POST",
+            body: JSON.stringify(
+                {
+                    title: 'arihant',
+                    price: 13.5,
+                    description: 'lorem ipsum set',
+                    image: 'https://i.pravatar.cc',
+                    category: 'electronic'
+                }
+            )
+        })
+        const data = await request.json()
+        // console.log(data);
+        setProductList([...productList, {id: Math.random() * 10000, ...product}]);
+        setCompleteProductList([...completeProductList, {id: Math.random() * 10000, ...product}])
+    }
 
-  const renderContent = () => {
-    if ( loading ) { return }
-    return <Content />
-  }
+    const searchInList = (keyword) => {
+        const updateProductList = completeProductList.filter((product) => {
+            return product.title.toLowerCase().includes(keyword)
+        });
+        setProductList([...updateProductList])
+        setSearchText(keyword)
+    }
 
-  return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Stack spacing={2}>
-        {renderLoading()}
-        {renderContent()}
-      </Stack>
-    </ThemeProvider>
-  )
+    useEffect(() => {
+        const fetchAllProduct = async () => {
+            const products = await fetch('https://fakestoreapi.com/products');
+            const data = await products.json()
+            setProductList(data)
+            setCompleteProductList(data)
+        }
+        fetchAllProduct()
+    }, []);
+    const addNewProductSpeech = async () => {
+        console.log("speak")
+        const title = await renderSpeech(addProduct)
+    }
+    return (
+        <>
+            {
+                loginPage ? (<div>
+                    <Grid2 container spacing={2}>
+                        <Grid2 xs={8}>
+                            <SearchBar  searchText={searchText} onChange={searchInList}/>
+                        </Grid2>
+                        <Grid2 xs={4}>
+                            <PrintList componentRef={componentRef}/>
+                            {"Hey, " + username}
+                            <Logout setLoginPage={setLoginPage} setUsername={setUsername} />
+                        </Grid2>
+                        <Grid2 xs={7}>
+                            <ProductList productList={productList} ref={componentRef}/>
+                        </Grid2>
+                        <Grid2 xs={5}>
+                            <Button
+                                onClick={() => setAddNewTaskForm(!addNewTaskForm)}
+                            >
+                                {addNewTaskForm ? 'Close' : 'Add New Task'}
+                            </Button>
+                            {addNewTaskForm && <AddProduct addProduct={addProduct}/>}
+                        </Grid2>
+
+
+                        <SpeakerComponent addProduct={() => addNewProductSpeech()}/>
+                    </Grid2>
+                </div>) : (<Login setUsername={setUsername} setLoginPage={setLoginPage} />)
+            }
+        </>
+
+
+    );
 }
-
-export default App
