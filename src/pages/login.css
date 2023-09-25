@@ -1,0 +1,26 @@
+.login{
+    align-items: center;
+    display: inline-block;
+    width: 100%;
+}
+.shopTitle{
+    font-size: 24px;
+}
+
+.form{
+    text-align: center;
+}
+
+.label{
+    align-self: center;
+    width: 50%;
+}
+
+#fname{
+    margin-top: 125px;
+    width: 400px;
+}
+
+.button{
+    display: inline-block;
+}
