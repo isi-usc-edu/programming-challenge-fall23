@@ -76,10 +76,10 @@ function Actions({ products }) {
             top: '-1px',
             right: '1px',
             backgroundColor: 'white',
-            borderRadius: '50%',
+            borderRadius: '60%',
             padding: '5px',
             color: 'red',
-            fontSize: '10px',
+            fontSize: '20px',
             fontWeight: 'bold',
           }}
         >
