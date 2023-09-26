@@ -15,6 +15,9 @@ import Loading from './components/Loading'
 import Login from './pages/login'
 import ShoppingListApp from './pages/shopping-list'
 
+import { BrowserRouter as Router, Route, Routes, BrowserRouter } from 'react-router-dom';
+
+ 
 
 let theme = createTheme({
   palette: {
@@ -87,6 +90,7 @@ const App = () => {
   }
 
   return (
+    // <Router>
     <ThemeProvider theme={theme}>
       {/* <CssBaseline />
       <Stack spacing={2}>
@@ -94,7 +98,13 @@ const App = () => {
         {renderContent()}
       </Stack> */}
       {/* <Login /> */}
-      <ShoppingListApp />
+      {/* <Router> */}
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/shopping-list" element={<ShoppingListApp />} />
+        {/* <Route path="/login" element={Login} /> */}
+      </Routes>
+    {/* </Router> */}
     </ThemeProvider>
   )
 }
