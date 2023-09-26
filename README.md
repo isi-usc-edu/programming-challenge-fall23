@@ -1,3 +1,17 @@
+# Web App Details
+1. Helps user login using their name
+2. Login redirects to the products page, currently we are using dummy data from dummyjson.com and with a limit of 100, moving forward we can add more data to this list.
+3. User can add items to the cart by clicking on the add item button.
+4. User can search items through typing text in the search bar or giving input through narration by clicking on the mic icon and saying the product name. This filters the data for the user.
+5. After adding, they will see a pop up mentioning added item to the cart and the cart symbol will update with current item in the cart.
+6. User can see all the items in the cart, their quantity and total cost of the cart and per item.
+7. They can share this cart with someone by clicking on share cart button and entering the email id.
+
+# Future Improvements:-
+1. Improving UI
+2. Adding more levels of security and a well maintained backend system, as current data is being stored in sessionstorage due to given scope of the project.
+3. Having a customized emailing template and a custom email sending function rather than using EmailJs. 
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
