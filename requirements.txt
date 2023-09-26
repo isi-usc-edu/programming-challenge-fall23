@@ -1,0 +1,14 @@
+flask
+flask_sqlalchemy
+flask_bcrypt 
+flask_cors
+secrets
+flask_session
+redis
+flask_login
+react typescript
+npx create-react-app my-app --template typescript
+react-router-dom
+react-alice-carousel
+axios
+Router
