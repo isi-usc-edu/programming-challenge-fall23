@@ -33,3 +33,6 @@ Open [http://127.0.0.1:8000](http://127.0.0.1:8000) to access the web applicatio
 ## Configured Endpoints
 * __/login__: Returns the login component for user authentication.
 * __/cart__: Displays available items within the cart along with the pricing breakdown and options for sharing via email or exporting as PDF.
+
+## Implementation
+I've prepared a video demonstrating the usage of the application as a reference point. [Video Demonstration](https://drive.google.com/file/d/1_WTjv3reg73AYBkwfpzeJJyK-3rzv_-S/view?usp=sharing)

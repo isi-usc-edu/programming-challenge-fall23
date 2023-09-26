@@ -19,7 +19,7 @@ def fetchSpecificProduct(productID):
 def authUser(request):
     userName = dict(request.POST.items()).get('name')
     request.session['userName'] = userName
-    authResponse = HttpResponseRedirect('/')
+    authResponse = HttpResponseRedirect('http://127.0.0.1:8000/')
     authResponse.set_cookie('userName', userName)
     return authResponse
 
@@ -56,13 +56,16 @@ def addToCart(request):
 @api_view(['GET'])    
 def getCartCount(request):
     cartItems = 0
-    if request.session.get('userName') == None or request.session.get('userName') =='':
+    if request.session.get('userName') == None:
         return JsonResponse({'success': False, 'message': '"Please login prior to fetching cart items!"'})
     else:
-        for tempProd in cartDict.get(request.session['userName']):
-            cartItems+= cartDict.get(request.session['userName']).get(tempProd)
-        
-        return JsonResponse({'success': True, 'cartItems': cartItems})
+        try:
+            for tempProd in cartDict.get(request.session['userName']):
+                cartItems+= cartDict.get(request.session['userName']).get(tempProd)
+
+            return JsonResponse({'success': True, 'cartItems': cartItems})
+        except Exception:
+            return JsonResponse({'success': True, 'cartItems': 0})
 
 @api_view(['GET'])    
 def getCart(request):

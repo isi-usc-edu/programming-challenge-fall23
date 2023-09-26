@@ -12,13 +12,16 @@ export default class App extends Component {
 
     render() {
         return (
-            <BrowserRouter>
-                <Routes>
-                    <Route exact path='/' element={<HomePage/>}></Route>
-                    <Route path='/login' element={<LoginPage/>}></Route>
-                    <Route path='/cart' element={<CartPage/>}></Route>
-                </Routes>
-            </BrowserRouter>
+            <main>
+                <BrowserRouter>
+                    <Routes>
+                        <Route exact path='/' element={<HomePage/>}></Route>
+                        <Route path='' element={<HomePage/>}></Route>
+                        <Route path='/login' element={<LoginPage/>}></Route>
+                        <Route path='/cart' element={<CartPage/>}></Route>
+                    </Routes>
+                </BrowserRouter>
+            </main>
         );
     }
 }
