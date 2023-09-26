@@ -1,16 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import Typography from '@mui/material/Typography'
+import ShoppingList from './ShoppingList'
 
 
-const Content = ({ socketConnection }) => {
-
-  const renderHello = () => {
-    return <Typography variant="h1">hello!</Typography>
-  }
+const Content = ({ }) => {
 
   return (
     <React.Fragment>
-      {renderHello()}
+      <ShoppingList />
     </React.Fragment>
   )
 }
