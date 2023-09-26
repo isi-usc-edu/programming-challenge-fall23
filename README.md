@@ -10,7 +10,7 @@
 # Future Improvements:-
 1. Improving UI
 2. Adding more levels of security and a well maintained backend system, as current data is being stored in sessionstorage due to given scope of the project.
-
+3. Having a customized emailing template and a custom email sending function rather than using EmailJs. 
 
 # Getting Started with Create React App
 
