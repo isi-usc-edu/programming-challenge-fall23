@@ -169,35 +169,40 @@ function Dashboard() {
           </Button>
         </div>       
         {apiData ? (
-          <Grid container spacing={3} sx={{ mt: 3 }}>
+          <Grid container spacing={4} sx={{ mt: 3 }}>
             {filteredProducts.map((project, index) => (
               <Grid key={index} item xs={12} sm={6} md={4} lg={3}>
-                <Card>
-                  <CardMedia
-                    component="img"
-                    height="200"
-                    alt="Product"
-                    src={project.thumbnail}
-                  />
-                  <CardContent>
-                    <Typography variant="subtitle1">
-                      {project.brand} : {project.title}
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      color="textSecondary"
-                      sx={{ fontSize: 12 }}
-                    >
-                      {project.description.substring(0, 80)}..
-                    </Typography>
+                <Card sx={{ height: '100%' }}>
+        <CardMedia
+          component="img"
+          height="200"
+          alt="Product"
+          src={project.thumbnail}
+        />
+        <CardContent>
+          <Typography variant="subtitle1">
+            {project.brand} : {project.title}
+          </Typography>
+          <Typography
+            variant="body2"
+            color="textSecondary"
+            sx={{
+              fontSize: 12,
+              // Limit the description text to 2 lines with ellipsis
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
+              display: '-webkit-box',
+              WebkitBoxOrient: 'vertical',
+              WebkitLineClamp: 2,
+            }}
+          >
+            {project.description}
+          </Typography>
                     <Typography variant="h6">${project.price}</Typography>
-                    <Button
-                      variant="contained"
-                      color="primary"
-                      onClick={() => handleClick(index)}
-                    >
-                      Add to Cart
-                    </Button>
+                    <div style={{ flexGrow: 1 }}></div>
+                <Button variant="contained" color="primary" onClick={() => handleClick(index)} sx={{ marginBottom: '8px', marginRight: '8px', float: 'right'}}>
+                  Add to Cart
+                </Button>
                     <Snackbar
                       open={open}
                       autoHideDuration={3000}
