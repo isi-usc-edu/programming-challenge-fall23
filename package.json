@@ -1,20 +1,29 @@
 {
-  "name": "shopping-list-app",
+  "name": "client",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@emotion/react": "11.11.0",
-    "@emotion/styled": "11.11.0",
-    "@mui/icons-material": "5.11.16",
-    "@mui/lab": "5.0.0-alpha.129",
-    "@mui/material": "5.13.0",
-    "@testing-library/jest-dom": "5.16.5",
-    "@testing-library/react": "13.4.0",
-    "@testing-library/user-event": "13.5.0",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.14.9",
+    "@mui/material": "^5.14.10",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.18.54",
+    "@types/react": "^18.2.22",
+    "@types/react-dom": "^18.2.7",
+    "axios": "^1.5.0",
+    "hero-slider": "^3.2.0",
+    "react": "^18.2.0",
+    "react-alice-carousel": "^2.7.1",
+    "react-dom": "^18.2.0",
+    "react-image-gallery": "^1.3.0",
+    "react-router-dom": "^6.16.0",
     "react-scripts": "5.0.1",
-    "web-vitals": "2.1.4"
+    "typescript": "^4.9.5",
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -39,5 +48,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/react-image-gallery": "^1.2.0",
+    "@types/react-router-dom": "^5.3.3",
+    "file-loader": "^6.2.0",
+    "url-loader": "^4.1.1"
   }
 }
